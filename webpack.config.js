@@ -1,11 +1,16 @@
-const path = require('path');
+const path = require('path'); // import will not work outside a module
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
+  mode: 'development', //FIXA DETTA FÖR PROD 
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
     publicPath: 'build/'
+  },
+  devServer: {
+    contentBase: './build'
   },
 
   module: {
@@ -23,7 +28,16 @@ const config = {
         }
       }
     ]
-  }
+  },
+
+  plugins: [
+
+    // För att kunna ladda in bundlar dynamiskt i ett index.html. Behövs för webpack dev server då den feedar från build-mappen
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    })
+
+  ]
 };
 
-module.exports = config;
+module.exports = config; // export will not work outside a module

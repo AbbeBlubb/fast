@@ -1,4 +1,5 @@
 const path = require('path'); // import will not work outside a module
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
@@ -6,7 +7,7 @@ const config = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: 'build/'
   },
   devServer: {
@@ -26,6 +27,13 @@ const config = {
             presets: ['@babel/preset-env']
           }
         }
+      },
+
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader, 'css-loader'
+        ]
       }
     ]
   },
@@ -35,7 +43,11 @@ const config = {
     // För att kunna ladda in bundlar dynamiskt i ett index.html. Behövs för webpack dev server då den feedar från build-mappen
     new HtmlWebpackPlugin({
       template: 'src/index.html'
-    })
+    }),
+
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
+    })
 
   ]
 };

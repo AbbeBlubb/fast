@@ -1,5 +1,7 @@
+import '../styles/lazy-loading.css';
+
 const hello = () => {
-  console.log("hello4!")
+  console.log("hello411!")
 }
 
 hello()

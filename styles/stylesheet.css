@@ -18,6 +18,8 @@ h1 {
   justify-content: center;
 }
 
-.image {
+.lazy-image {
+  width: 300px;
+  height: 300px;
   margin: 10px;
 }

@@ -12,10 +12,14 @@ const about = `
   </p>
 `;
 
+const TINYTRANSPARENTGIF = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+
 // Create the image section
 const arrayOfImageNames = [];
 for (let i = 1; i <= 20; i++) { arrayOfImageNames.push(`${i}`);}
-const imageElements = arrayOfImageNames.map(element => `<img class='lazy-image' data-src=assets/${element}.png data-alt='Random photo' data-title='Random photo'>`).join('');
+const imageElements = arrayOfImageNames.map(element => `
+  <img src=${TINYTRANSPARENTGIF} class='lazy-image' data-src='assets/${element}.png' data-alt='Random photo' data-title='Random photo'>
+`).join('');
 
 const imageSection = `
   <section class='image-section' role='contentinfo' aria-label='Section with photos'>

@@ -5,7 +5,7 @@ class ImageObserverCreator {
     this.imageObserver;
     this.options = {
       root: null,
-      rootMargin: '0',
+      rootMargin: '0px',
       threshold: 1.0
       // In Edge the threshold is evaluated like 0, why?
     };

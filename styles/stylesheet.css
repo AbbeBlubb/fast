@@ -12,6 +12,11 @@ h1 {
   text-align: center;
 }
 
+.description-error {
+  text-align: center;
+  color: red;
+}
+
 .image-section {
   display: flex;
   flex-wrap: wrap;
@@ -22,4 +27,16 @@ h1 {
   width: 300px;
   height: 300px;
   margin: 10px;
+}
+
+.fade-in {
+  animation-name: fade-in;
+  animation-duration: 400ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}        
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }

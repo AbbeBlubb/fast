@@ -1,3 +1,9 @@
+import {
+  browserSupportsIntersectionObserver,
+  tinyTransparentGif
+} from './helpers';
+
+
 // Create header
 const header = `
   <header>
@@ -7,18 +13,27 @@ const header = `
 
 // Create description
 const about = `
-  <p class='description'>
-    The images will load when entering the viewport.
-  </p>
-`;
-
-const TINYTRANSPARENTGIF = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+  ${browserSupportsIntersectionObserver
+    ?
+      `<p class='description'>
+        The images will load when entering the viewport.
+      </p>`
+    :
+      `<p class='description-error'>
+        The browser you're using doesn't support IntersectionObserver :(
+      </p>`
+}`;
 
 // Create the image section
 const arrayOfImageNames = [];
 for (let i = 1; i <= 20; i++) { arrayOfImageNames.push(`${i}`);}
 const imageElements = arrayOfImageNames.map(element => `
-  <img src=${TINYTRANSPARENTGIF} class='lazy-image' data-src='assets/${element}.png' data-alt='Random photo' data-title='Random photo'>
+  <img
+    src=${browserSupportsIntersectionObserver ?  tinyTransparentGif : `assets/${element}.png`}
+    class='lazy-image'
+    data-src='assets/${element}.png'
+    data-alt='Random photo'
+    data-title='Random photo'>
 `).join('');
 
 const imageSection = `

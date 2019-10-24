@@ -1,4 +1,3 @@
-import 'intersection-observer';
 import { HTMLString } from './HTMLString';
 import '../styles/stylesheet.css';
 import './imageObserver';

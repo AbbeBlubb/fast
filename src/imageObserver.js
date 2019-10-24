@@ -5,11 +5,14 @@ class ImageObserverCreator {
     this.imageObserver;
     this.options = {
       root: null,
-      rootMargin: '20px',
+      rootMargin: '0',
       threshold: 1.0
+      // In Edge the threshold is evaluated like 0, why?
     };
 
-    window.addEventListener('load', this.onDOMContentLoaded.bind(this), false);
+    if('IntersectionObserver' in window) {
+      window.addEventListener('load', this.onDOMContentLoaded.bind(this), false);
+    }
   };
 
   createObserver(options) {
@@ -35,6 +38,7 @@ class ImageObserverCreator {
         image.src = image.dataset.src;
         image.alt = image.dataset.alt;
         image.title = image.dataset.title;
+        image.classList.add('fade-in');
         // Because of 'this', imageObserver must be fed as arg to parent function
         imageObserver.unobserve(entry.target);
       }

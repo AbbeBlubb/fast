@@ -1,9 +1,10 @@
-const path = require('path'); // import will not work outside a module
+// ES2015 module system import and export will not work in this file. Use require and module.exports
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
-  mode: 'development', //FIXA DETTA FÖR PROD 
+  mode: 'development', //FIXA DETTA FÖR PROD
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -17,9 +18,9 @@ const config = {
   module: {
     rules: [
 
-      // Babel: needs an .babelrc-file in the root folder
+      // Babel: in cases, it needs a .babelrc-file in the root folder
       {
-        test: /\.js$/, // Apply Babel only on .js-files
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -30,9 +31,11 @@ const config = {
       },
 
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader, 'css-loader'
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
         ]
       }
     ]
@@ -52,4 +55,4 @@ const config = {
   ]
 };
 
-module.exports = config; // export will not work outside a module
+module.exports = config;

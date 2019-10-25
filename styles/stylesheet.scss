@@ -1,0 +1,48 @@
+
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  color: gray;
+  text-align: center;
+}
+
+.about-section {
+  text-align: center;
+
+  .description {
+    color: green;
+  }
+
+  .description-error {
+    color: red;
+  }
+}
+
+
+.image-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .lazy-image {
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+  }
+
+  .fade-in {
+    animation-name: fade-in;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+  }        
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

@@ -5,7 +5,7 @@ export const aboutSection = `
     ${browserSupportsIntersectionObserver
       ?
         `<p class='description'>
-          The images will load when entering the viewport.
+          Images will load when entering the viewport.
         </p>`
       :
         `<p class='description-error'>

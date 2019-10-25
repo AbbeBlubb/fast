@@ -3,14 +3,34 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
 const config = {
+
   mode: 'development', //FIXA DETTA FÖR PROD
-  entry: './src/index.js',
+
+  entry: {
+    bundle: './src/index.js'
+  },
+
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: '[name].js',
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js',
     publicPath: 'build/'
   },
+
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
+  },
+
   devServer: {
     contentBase: './build'
   },
@@ -49,7 +69,7 @@ const config = {
     }),
 
     new MiniCssExtractPlugin({
-      filename: '[name].css'
+      filename: '[name].[chunkhash].css'
     })
 
   ]

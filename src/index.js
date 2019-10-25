@@ -1,5 +1,5 @@
 import { HTMLString } from './templates/view';
-import '../styles/stylesheet.scss';
+import '../styles/styles.scss';
 import './imageObserver';
 
 

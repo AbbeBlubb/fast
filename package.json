@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "intersection-observer": "^0.7.0"
+    "lodash.shuffle": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",

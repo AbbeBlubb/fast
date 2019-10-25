@@ -1,4 +1,4 @@
-import { HTMLString } from './HTMLString';
+import { HTMLString } from './templates/view';
 import '../styles/stylesheet.css';
 import './imageObserver';
 

@@ -1,3 +1,5 @@
+import { browserSupportsIntersectionObserver } from './helpers';
+
 class ImageObserverCreator {
 
   constructor() {
@@ -7,10 +9,10 @@ class ImageObserverCreator {
       root: null,
       rootMargin: '0px',
       threshold: 1.0
-      // In Edge the threshold is evaluated like 0, why?
+      // In Edge the threshold is evaluated like 0 and fires when the intersectionRatio is 0.0,, why?
     };
 
-    if('IntersectionObserver' in window) {
+    if(browserSupportsIntersectionObserver) {
       window.addEventListener('load', this.onDOMContentLoaded.bind(this), false);
     }
   };

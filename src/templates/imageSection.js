@@ -1,11 +1,11 @@
 import {
   browserSupportsIntersectionObserver,
-  tinyTransparentGif
+  tinyTransparentGif,
+  getShuffledEntriesIntoArray
 } from '../helpers';
 
 
-const arrayOfImageNames = [];
-for (let i = 1; i <= 20; i++) { arrayOfImageNames.push(`${i}`);}
+const arrayOfImageNames = getShuffledEntriesIntoArray(20, undefined);
 
 const imageElements = arrayOfImageNames.map(element => `
   <img

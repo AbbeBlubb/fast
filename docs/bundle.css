@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 5px 0 10px 0;
   font-family: 'Exo', sans-serif;
   font-weight: 300; }
 
@@ -11,7 +12,7 @@ body {
 
 .about {
   text-align: center;
-  padding: 5px 10px; }
+  padding: 0 10px; }
   .about-description--error {
     color: red; }
 
@@ -43,4 +44,19 @@ body {
     opacity: 0; }
   100% {
     opacity: 1; } }
+
+.scroll-to-top {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(164, 197, 164, 0.9);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  outline: none;
+  border: none;
+  cursor: pointer; }
+  .scroll-to-top:active {
+    background-color: rgba(130, 160, 130, 0.9); }
 

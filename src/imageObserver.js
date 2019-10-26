@@ -1,4 +1,5 @@
-import { browserSupportsIntersectionObserver } from './helpers';
+import { browserSupportsIntersectionObserver }from './helpers';
+import { oneImageHasBeenLoaded } from './templates/data';
 
 class ImageObserverCreator {
 
@@ -43,6 +44,7 @@ class ImageObserverCreator {
         image.classList.add('fade-in');
         // Because of 'this', imageObserver must be fed as arg to parent function
         imageObserver.unobserve(entry.target);
+        oneImageHasBeenLoaded();
       }
     });
   }

@@ -1,11 +1,11 @@
-.about-section {
+.about {
   text-align: center;
+  padding: 0 10px;
 
-  .description {
-    color: green;
+  &-description {
+    &--error {
+      color: red;
+    }
   }
 
-  .description-error {
-    color: red;
-  }
 }

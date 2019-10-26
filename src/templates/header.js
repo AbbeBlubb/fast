@@ -1,5 +1,5 @@
 export const header = `
-  <header>
-    <h1>The Lazy Loader</h1>
+  <header class='header'>
+    <h1>Blazingly Fast</h1>
   </header>
 `;

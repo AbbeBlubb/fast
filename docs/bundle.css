@@ -1,17 +1,28 @@
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif; }
+  font-family: 'Exo', sans-serif;
+  font-weight: 300; }
 
-h1 {
-  color: gray;
-  text-align: center; }
+.header h1 {
+  color: #0c0c0c;
+  text-align: center;
+  font-weight: 100;
+  font-style: italic; }
 
-.about-section {
-  text-align: center; }
-  .about-section .description {
-    color: green; }
-  .about-section .description-error {
+.about {
+  text-align: center;
+  padding: 5px 10px; }
+  .about-description--error {
     color: red; }
+
+.data {
+  position: sticky;
+  top: 0;
+  height: 20px;
+  padding: 10px;
+  background: rgba(238, 209, 167, 0.9);
+  text-align: center;
+  z-index: 10; }
 
 .image-section {
   display: flex;

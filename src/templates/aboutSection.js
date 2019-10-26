@@ -1,14 +1,14 @@
 import { browserSupportsIntersectionObserver } from '../helpers';
 
 export const aboutSection = `
-  <section class='about-section' role='contentinfo' aria-label='About the project'>
+  <section class='about' role='contentinfo' aria-label='About the project'>
     ${browserSupportsIntersectionObserver
       ?
-        `<p class='description'>
-          Images will load when entering the viewport.
+        `<p class='about-description'>
+          This page lazy-loads the images. Each Image will load when 20 % of the image height has entered the viewport.
         </p>`
       :
-        `<p class='description-error'>
+        `<p class='about-description--error'>
           The browser you're using doesn't support IntersectionObserver :(
         </p>`
     }

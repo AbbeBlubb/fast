@@ -2,6 +2,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 
 const config = {
@@ -14,8 +15,8 @@ const config = {
 
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: '[name].[chunkhash].js',
-    chunkFilename: '[name].[chunkhash].js',
+    filename: '[name].js',
+    chunkFilename: '[name].js',
     publicPath: 'build/'
   },
 
@@ -32,7 +33,8 @@ const config = {
   },
 
   devServer: {
-    contentBase: './build'
+    contentBase: './build',
+    port: 8000
   },
 
   module: {
@@ -69,8 +71,10 @@ const config = {
     }),
 
     new MiniCssExtractPlugin({
-      filename: '[name].[chunkhash].css'
-    })
+      filename: '[name].css'
+    }),
+
+    new ManifestPlugin()
 
   ]
 };

@@ -1,9 +1,11 @@
 .data {
+  max-width: calc((300px * 5) + 60px);
+  margin: 0 auto;
   position: sticky;
   top: 0;
   height: 20px;
   padding: 10px;
   background: rgba(238, 209, 167, 0.9);
   text-align: center;;
-  z-index: 10;;
+  z-index: 10;
 }

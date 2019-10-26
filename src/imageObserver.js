@@ -14,7 +14,8 @@ class ImageObserverCreator {
     };
 
     if(browserSupportsIntersectionObserver) {
-      window.addEventListener('load', this.onDOMContentLoaded.bind(this), false);
+      window.addEventListener('load', this.onLoaded.bind(this), false);
+      // 'load', to be sure the CSS has been loaded, for the images width and height
     }
   };
 
@@ -25,7 +26,7 @@ class ImageObserverCreator {
     });
   };
 
-  onDOMContentLoaded() {
+  onLoaded() {
     this.images = document.querySelectorAll('.lazy-image');
     this.createObserver(this.options);
   }

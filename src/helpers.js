@@ -4,6 +4,7 @@ import shuffle from 'lodash.shuffle';
 /** Constants */
 
 export const tinyTransparentGif = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+// Gray pixel: R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw== BUT this creates a blinking when replaced with the img path
 export const browserSupportsIntersectionObserver = 'IntersectionObserver' in window;
 
 

@@ -5,7 +5,8 @@ export const aboutSection = `
     ${browserSupportsIntersectionObserver
       ?
         `<p class='about-description'>
-          This page lazy-loads the images. Each Image will load when 20 % of the image height has entered the viewport.
+          This page lazy-loads the images.
+          Each Image will load when 20 % of the image height has entered the viewport.
         </p>`
       :
         `<p class='about-description--error'>

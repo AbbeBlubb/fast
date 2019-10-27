@@ -34,7 +34,9 @@ const config = {
 
   devServer: {
     contentBase: './build',
-    port: 8000
+    port: 8000,
+    //To load index.html in any 404 responses:
+    historyApiFallback: true
   },
 
   module: {

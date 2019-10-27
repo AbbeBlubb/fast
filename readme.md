@@ -22,8 +22,13 @@ Other
 
 Want to do:
 - Routing
+  - Start / lazy-loading / Lazy
+  - Infinitive scroll / Infinite
+  - Code splitting info (hash) / Fastness
 - System.import() for module routing
 - chunkhash
 - webpack config prod settings
 - manifest.json
 - infinite scroll
+
+<p>⚡ Lazy-loading and code splitting ⚡</p>

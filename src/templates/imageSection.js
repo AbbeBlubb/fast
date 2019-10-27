@@ -12,8 +12,8 @@ const imageElements = arrayOfImageNames.map(element => `
     src=${browserSupportsIntersectionObserver ?  tinyTransparentGif : `assets/${element}.jpg`}
     class='lazy-image'
     data-src='assets/${element}.jpg'
-    data-alt='Random photo'
-    data-title='Random photo'>
+    data-alt='Cheetahs in nature'
+    data-title='Cheetah'>
 `).join('');
 
 export const imageSection = `

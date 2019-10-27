@@ -2,6 +2,7 @@ import { HTMLString } from './templates/view';
 import '../styles/styles.scss';
 import './ImageObserver';
 import './OutlineHandler';
+import './router';
 import smoothscroll from 'smoothscroll-polyfill';
 
 

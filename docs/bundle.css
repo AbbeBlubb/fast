@@ -9,6 +9,12 @@ body {
   text-align: center;
   font-weight: 100;
   font-style: italic; }
+  @media (min-width: 640px) {
+    .header h1 {
+      font-size: 2.5em; } }
+  @media (min-width: 1600px) {
+    .header h1 {
+      font-size: 3em; } }
 
 .about {
   text-align: center;
@@ -17,6 +23,8 @@ body {
     color: red; }
 
 .data {
+  max-width: calc((300px * 5) + 60px);
+  margin: 0 auto;
   position: sticky;
   top: 0;
   height: 20px;
@@ -26,6 +34,8 @@ body {
   z-index: 10; }
 
 .image-section {
+  max-width: 1610px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center; }
@@ -46,6 +56,7 @@ body {
     opacity: 1; } }
 
 .scroll-to-top {
+  display: none;
   position: fixed;
   right: 10px;
   bottom: 10px;
@@ -59,4 +70,29 @@ body {
   cursor: pointer; }
   .scroll-to-top:active {
     background-color: rgba(130, 160, 130, 0.9); }
+
+.btn-entrance {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-name: btn-entrance-animation; }
+
+.btn-exit {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-name: btn-exit-animation; }
+
+@keyframes btn-entrance-animation {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3); }
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1); } }
+
+@keyframes btn-exit-animation {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3); } }
 

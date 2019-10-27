@@ -11,9 +11,13 @@ export const scrollToTopBtn = `
   </button>
 `;
 
+// The scroll-to-top button will be targeted after the DOM has loaded the elements (but before it has fully loaded the CSS and JS)
+let targetScrollToTopBtn = null;
+
+// Scroll to top functionality
 window.addEventListener('DOMContentLoaded', function() {
-  document
-    .querySelector('.scroll-to-top')
+  targetScrollToTopBtn = document.querySelector('.scroll-to-top');
+  targetScrollToTopBtn
     .addEventListener('click', function() {
       window.scrollTo({
         top: 0,
@@ -22,3 +26,25 @@ window.addEventListener('DOMContentLoaded', function() {
       });
     });
 });
+
+// Class toggeling for the animation
+window.addEventListener('scroll', function() {
+  if (window.pageYOffset > 300) {
+    if (!targetScrollToTopBtn.classList.contains('btn-entrance')) {
+      targetScrollToTopBtn.classList.remove('btn-exit');
+      targetScrollToTopBtn.classList.add('btn-entrance');
+      targetScrollToTopBtn.style.display = 'block';
+    }
+  } else {
+    if (targetScrollToTopBtn.classList.contains('btn-entrance')) {
+      targetScrollToTopBtn.classList.remove('btn-entrance');
+      targetScrollToTopBtn.classList.add('btn-exit');
+      this.setTimeout(function() {
+        targetScrollToTopBtn.style.display = 'none';
+      }, 250);
+      // The timer needed in order to see the animation,
+      // but is also a risk: if user makes many fast scrolls in the intersection, the element will then have the class "btn-entrance" at the same time as styling 'display:none'
+      }
+    }
+  }
+);

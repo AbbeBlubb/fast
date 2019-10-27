@@ -2,11 +2,27 @@
 
 Webpack
 - webpack dev server
-- babel loader
-- Separate bundles for CSS and JS
-- Hot reload
+- Babel
+- SCSS
+- Code splitting
 
-IntersectionObserve
-System.import()
+JS
+- IntersectionObserve
+- Markup logic with template literals
+- Interaction with event listeners on elements and window
 
-Linter: SonarLint
+CSS
+- Image animation
+- Scroll button animation
+
+Other
+- SonarLint
+- BEM
+
+Want to do:
+- Routing
+- System.import() for module routing
+- chunkhash
+- webpack config prod settings
+- manifest.json
+- infinite scroll

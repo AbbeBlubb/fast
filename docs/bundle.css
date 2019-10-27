@@ -4,6 +4,20 @@ body {
   font-family: 'Exo', sans-serif;
   font-weight: 300; }
 
+/* As long as the .user-is-tabbing doesn't exists, have no outlines for buttons or select elements */
+body:not(.user-is-tabbing) button:focus,
+body:not(.user-is-tabbing) select:focus {
+  outline: none; }
+
+/* As long as the .user-is-tabbing doesn't exist, have an own visually pleasant outline for input and textarea elements */
+body:not(.user-is-tabbing) input:focus,
+body:not(.user-is-tabbing) textarea:focus {
+  outline: 2px solid aqua; }
+
+/* If the .user-is-tabbing exists, override the default outline styling with an own styling, with same styling for all focus elements */
+body.user-is-tabbing *:focus {
+  outline: 2px solid aqua !important; }
+
 .header h1 {
   color: #0c0c0c;
   text-align: center;
@@ -65,11 +79,14 @@ body {
   border-radius: 50%;
   background-color: rgba(164, 197, 164, 0.9);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  outline: none;
   border: none;
   cursor: pointer; }
   .scroll-to-top:active {
     background-color: rgba(130, 160, 130, 0.9); }
+  .scroll-to-top:hover svg {
+    fill: #4a5546; }
+  .scroll-to-top svg {
+    transition: fill 0.3s ease; }
 
 .btn-entrance {
   animation-duration: 0.3s;

@@ -8,12 +8,19 @@
   border-radius: 50%;
   background-color: rgba(164, 197, 164, 0.9);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.50);
-  outline: none;
   border: none;
   cursor: pointer;
 
   &:active {
     background-color: rgba(130, 160, 130, 0.9);
+  }
+
+  &:hover svg {
+    fill :#4a5546;
+  }
+
+  svg {
+    transition: fill 0.3s ease;
   }
 }
 
@@ -30,11 +37,22 @@
 }
 
 @keyframes btn-entrance-animation {
-  from { opacity: 0; transform: scale3d(0.3, 0.3, 0.3)}
-  to { opacity: 1; transform: scale3d(1, 1, 1)}
+  from { 
+    opacity: 0; 
+    transform: scale3d(0.3, 0.3, 0.3)
+  }
+  to { 
+    opacity: 1; 
+    transform: scale3d(1, 1, 1)
+  }
 }
 
 @keyframes btn-exit-animation {
-  from { opacity: 1; }
-  to { opacity: 0; transform: scale3d(0.3, 0.3, 0.3)}
+  from { 
+    opacity: 1; 
+  }
+  to { 
+    opacity: 0; 
+    transform: scale3d(0.3, 0.3, 0.3) 
+  }
 }

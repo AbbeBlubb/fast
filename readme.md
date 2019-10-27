@@ -10,6 +10,7 @@ JS
 - IntersectionObserve
 - Markup logic with template literals
 - Interaction with event listeners on elements and window
+- Handler for outline when user is tabbing or clicking
 
 CSS
 - Image animation

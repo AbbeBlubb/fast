@@ -1,7 +1,7 @@
 import { browserSupportsIntersectionObserver }from './helpers';
 import { oneImageHasBeenLoaded } from './templates/data';
 
-class ImageObserverCreator {
+class ImageObserver {
 
   constructor() {
     this.images;
@@ -51,4 +51,4 @@ class ImageObserverCreator {
   }
 }
 
-export const imageObserverSingleton = new ImageObserverCreator();
+export const imageObserverSingleton = new ImageObserver();

@@ -1,0 +1,19 @@
+.navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1610px;
+  background-image: url(https://www.chenhuijing.com/assets/images/bg-header.jpg);
+  background-color: rgb(214, 248, 163);
+
+  &__button {
+    width: 100px;
+    padding: 0;
+    height: 40px;
+    border:none;
+    margin: 0 3px;
+    background-color: rgb(214, 248, 163);
+  }
+}

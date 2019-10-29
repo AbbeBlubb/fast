@@ -10,7 +10,7 @@ const arrayOfImageNames = getShuffledEntriesIntoArray(20, undefined);
 const imageElements = arrayOfImageNames.map(element => `
   <img
     src=${browserSupportsIntersectionObserver ?  tinyTransparentGif : `assets/${element}.jpg`}
-    class='lazy-image'
+    class='image-section__lazy-image'
     data-src='assets/${element}.jpg'
     data-alt='Cheetahs in nature'
     data-title='Cheetah'>

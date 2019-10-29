@@ -27,7 +27,7 @@ class ImageObserver {
   };
 
   onLoaded() {
-    this.images = document.querySelectorAll('.lazy-image');
+    this.images = document.querySelectorAll('.image-section__lazy-image');
     this.createObserver(this.options);
   }
 

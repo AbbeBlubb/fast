@@ -1,6 +1,13 @@
+// General settings
+
 body {
   margin: 0;
   padding: 5px 0 10px 0;
   font-family: 'Exo', sans-serif;
   font-weight: 300;
+  font-size: 1rem;
 }
+
+// Variables
+
+$app-width:  calc((300px * 5) + 80px); // 5 images x 300 px, 80px in margins inbetween the images

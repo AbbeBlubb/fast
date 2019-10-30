@@ -1,19 +1,37 @@
 .navigation {
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 1610px;
-  background-image: url(https://www.chenhuijing.com/assets/images/bg-header.jpg);
-  background-color: rgb(214, 248, 163);
+  max-width: $app-width;
+  margin: 0 auto;
 
   &__button {
     width: 100px;
     padding: 0;
     height: 40px;
     border:none;
-    margin: 0 3px;
-    background-color: rgb(214, 248, 163);
+    margin: 0 5px;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(214, 248, 163);
+    font-family: 'Exo', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1rem;
+    position: relative;
+  
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -2px;
+      height: 2px;
+      background-color: rgb(115, 168, 36);
+      width: 0%;
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+    &:hover::after {
+      width: 100%;
+      left: 0;
+    }
   }
 }

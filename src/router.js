@@ -23,16 +23,20 @@
   const reactOnURLChange = function(currentPath) {
     switch (currentPath) {
       case '/':
+        app = document.getElementById('app');
         app.insertAdjacentHTML('beforeBegin', `<div id='app'>Root</div>`);
         break;
       case '/infinite':
+        app = document.getElementById('app');
         app.insertAdjacentHTML('beforeBegin',`<div id='app'>Infinite</div>`);
         break;
       case '/fastness':
+        app = document.getElementById('app');
         app.insertAdjacentHTML('beforeBegin', `<div id='app'>Fastness</div>`);
         break;
       default:
-        console.log(currentPath)
+        console.log('reactOnURLChange - Default - current path: ', currentPath)
+        app = document.getElementById('app');
         app.insertAdjacentHTML('beforeBegin', `<div id='app'>404</div>`);
     }
   };
@@ -56,8 +60,16 @@
     }
   };
 
+  const loadInitialRoute = function(currentPath) {
+    console.log('Initial route: ', currentPath, 'THIS IS NOW AT THE BOTTOM OF THE PAGE. First at top but then the index.js renders and pushes the route name to the bottom.')
+    reactOnURLChange(currentPath);
+  };
+
+  loadInitialRoute(window.location.pathname);
+
   // DOM -> Get the active attribute routes -> attatach event listeners -> on click -> pushState
   window.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM content loaded');
     app = document.getElementById('app');
     // The DOM nodes needs to be converted to an array in order to have array methods
     activeRoutes = Array.from(document.querySelectorAll('[route]'));

@@ -8,7 +8,7 @@ export const oneImageHasBeenLoaded = () => {
   document.querySelector('.image-count').innerHTML = counterForImageLoader;
 };
 
-export const data = `
+export const dataLazy = `
   <div class='data'>
     Images loaded: <span class='image-count'>0</span>
   </div>

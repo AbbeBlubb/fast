@@ -1,5 +1,5 @@
 import { browserSupportsIntersectionObserver }from './helpers';
-import { oneImageHasBeenLoaded } from './templates/data';
+import { oneImageHasBeenLoaded } from './templates/dataLazy';
 
 class ImageObserver {
 

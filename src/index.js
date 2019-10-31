@@ -1,4 +1,4 @@
-import { HTMLString } from './templates/view';
+import { HTMLStringLazy } from './views/lazy';
 import '../styles/styles.scss';
 import './ImageObserver';
 import './OutlineHandler';
@@ -10,4 +10,4 @@ import smoothscroll from 'smoothscroll-polyfill';
 smoothscroll.polyfill();
 
 // Insert sections in the DOM
-document.getElementById('app').insertAdjacentHTML('afterbegin', HTMLString);
+document.getElementById('app').insertAdjacentHTML('afterbegin', HTMLStringLazy);

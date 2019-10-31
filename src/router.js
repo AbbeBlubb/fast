@@ -74,7 +74,11 @@
     // The DOM nodes needs to be converted to an array in order to have array methods
     activeRoutes = Array.from(document.querySelectorAll('[route]'));
     activeRoutes.forEach(function(route) {
-      route.addEventListener('click', navigate, false);
+      route.addEventListener('click', function(event) {
+        event.preventDefault;
+        navigate(event);
+      }, false);
+
     });
   });
 

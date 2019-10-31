@@ -1,6 +1,6 @@
 import { browserSupportsIntersectionObserver } from '../helpers';
 
-export const aboutSection = `
+export const aboutSectionLazy = `
   <section class='about' role='contentinfo' aria-label='About the project'>
     ${browserSupportsIntersectionObserver
       ?

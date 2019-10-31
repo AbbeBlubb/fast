@@ -1,0 +1,54 @@
+.not-found {
+  box-sizing: border-box;;
+  width: calc(100% - 40px);
+  height: calc(100vh - 20px - 20px); 
+  margin: 15px 20px 10px 20px; // Match with the padding of the body, 5px 0 10px 0
+  background-image:
+     repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 1rem,
+        #ccc 1rem,
+        #ccc 2rem
+     );
+  background-size: 200% 200%;
+  animation: barberpole 40s linear infinite;
+
+  .not-found__message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    font-size: 100px;
+    text-shadow: 3px 3px #000;
+
+    -webkit-animation: color-change 20s infinite;
+    -o-animation: color-change 20s infinite;
+    animation: color-change 20s infinite;
+
+    @media(min-width: 600px) {
+      font-size: 160px;
+    }
+
+    @media(min-width: 600px) {
+      font-size: 160px;
+    }
+  }
+
+  @keyframes barberpole {
+    100% { background-position: 100% 100%; }
+  }
+
+  @keyframes color-change {
+    00% { color: red; }
+    20% { color: aqua; }
+    40% { color: yellow; }
+    60% { color: lawngreen; }
+    80% { color: deeppink; }
+  }
+}

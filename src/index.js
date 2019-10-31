@@ -1,4 +1,3 @@
-import { HTMLStringLazy } from './views/lazy';
 import '../styles/styles.scss';
 import './ImageObserver';
 import './OutlineHandler';
@@ -9,5 +8,4 @@ import smoothscroll from 'smoothscroll-polyfill';
 //Polyfill needs to be called in order to make scrollTo.behavior work in all browsers
 smoothscroll.polyfill();
 
-// Insert sections in the DOM
-document.getElementById('app').insertAdjacentHTML('afterbegin', HTMLStringLazy);
+// Move router logic for initial page rendering here, when the router is a tidy class

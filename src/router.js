@@ -1,3 +1,8 @@
+  import { HTMLStringLazy } from './views/lazy';
+  import { HTMLStringInfinite } from './views/infinite';
+  import { HTMLStringFastness } from './views/fastness';
+  import { HTMLStringNotFound } from './views/notFound';
+  
   let app = null;
   let activeRoutes = null;
 
@@ -60,11 +65,28 @@
     }
   };
 
+  // Function to load the application
   const loadInitialRoute = function(currentPath) {
-    console.log('Initial route: ', currentPath, 'THIS IS NOW AT THE BOTTOM OF THE PAGE. First at top but then the index.js renders and pushes the route name to the bottom.')
-    reactOnURLChange(currentPath);
+    switch (currentPath) {
+      case '/':
+        app = document.getElementById('app');
+        app.innerHTML = HTMLStringLazy;
+        break;
+      case '/infinite':
+        app = document.getElementById('app');
+        app.innerHTML = HTMLStringInfinite;
+        break;
+      case '/fastness':
+        app = document.getElementById('app');
+        app.innerHTML = HTMLStringFastness;
+        break;
+      default:
+        app = document.getElementById('app');
+        app.innerHTML = HTMLStringNotFound;
+    }
   };
 
+  // Fire the function to load the application
   loadInitialRoute(window.location.pathname);
 
   // DOM -> Get the active attribute routes -> attatach event listeners -> on click -> pushState

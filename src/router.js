@@ -1,110 +1,56 @@
-  import { HTMLStringLazy } from './views/lazy';
-  import { HTMLStringInfinite } from './views/infinite';
-  import { HTMLStringFastness } from './views/fastness';
-  import { HTMLStringNotFound } from './views/notFound';
-  
-  let app = null;
-  let activeRoutes = null;
+import { HTMLStringNotFound } from './views/notFound';
 
 
+export class Router {
 
-  // Register rout info for each route that will decide content in the SPA
-  const routes = [
-    {
-      path: '/',
-      name: 'Root'
-    },
-    {
-      path: '/infinite',
-      name: 'Infinite'
-    },
-    {
-      path: '/fastness',
-      name: 'Fastness'
-    }
-  ];
+  constructor(routes) {
+    // routes must be first in order to not be undefined when used
+    this.routes = routes;
+
+    window.addEventListener('DOMContentLoaded', this.registerDOMRoutes.bind(this), false);
+
+    // Popstate triggers if transition between two pages happens when pressing back/forward buttons in browser and on pushState
+    window.addEventListener('popstate', this.reactOnURLChange(window.location.pathname), false);
+  }
 
   // React when URL bar changes, needs litsener . App is null if the value is not set after dom content loaded
-  const reactOnURLChange = function(currentPath) {
-    switch (currentPath) {
-      case '/':
-        app = document.getElementById('app');
-        app.insertAdjacentHTML('beforeBegin', `<div id='app'>Root</div>`);
-        break;
-      case '/infinite':
-        app = document.getElementById('app');
-        app.insertAdjacentHTML('beforeBegin',`<div id='app'>Infinite</div>`);
-        break;
-      case '/fastness':
-        app = document.getElementById('app');
-        app.insertAdjacentHTML('beforeBegin', `<div id='app'>Fastness</div>`);
-        break;
-      default:
-        console.log('reactOnURLChange - Default - current path: ', currentPath)
-        app = document.getElementById('app');
-        app.insertAdjacentHTML('beforeBegin', `<div id='app'>404</div>`);
-    }
+  reactOnURLChange(currentPath) {
+    const routeToLoad = this.routes.find(routeObject => routeObject.path === currentPath);
+    routeToLoad.navigationHandler();
+  };
+
+  // Function to be called in index.js to load the initial view
+  loadInitialRoute(currentPath) {
+    const app = document.getElementById('app');
+    const routeToLoad = this.routes.find(routeObject => routeObject.path === currentPath);
+    app.innerHTML = routeToLoad ? routeToLoad.loadInitialPage :  HTMLStringNotFound;
   };
 
   // When click on navigation button, take the event and set the new path in the URL bar
-  const navigate = function(event) {
-
-    // .attributes avser en array med attributen. Här är attributes[0] 'class' och attributes[1] 'route'
-    //console.log(event.target.attributes)
+  btnNavigate(event) {
     const btnRoutePath = event.target.attributes[1].value;
-    const targetRoute = routes.filter(function(registeredRouteInfo) {
-      return registeredRouteInfo.path === btnRoutePath;
-    })[0];
-
-    if(!targetRoute) {
+    // [0] is the element's attribute 'class', [1] is 'route'
+    const routeToLoad = this.routes.find(routeObject => routeObject.path === btnRoutePath);
+    if(!routeToLoad) {
       window.history.pushState({}, '', 'error');
-      reactOnURLChange('error');
+      this.reactOnURLChange('error');
     } else {
-      window.history.pushState({}, '', targetRoute.path);
-      reactOnURLChange(targetRoute.path);
+      window.history.pushState({}, '', routeToLoad.path);
+      this.reactOnURLChange(routeToLoad.path);
     }
   };
 
-  // Function to load the application
-  const loadInitialRoute = function(currentPath) {
-    switch (currentPath) {
-      case '/':
-        app = document.getElementById('app');
-        app.innerHTML = HTMLStringLazy;
-        break;
-      case '/infinite':
-        app = document.getElementById('app');
-        app.innerHTML = HTMLStringInfinite;
-        break;
-      case '/fastness':
-        app = document.getElementById('app');
-        app.innerHTML = HTMLStringFastness;
-        break;
-      default:
-        app = document.getElementById('app');
-        app.innerHTML = HTMLStringNotFound;
-    }
-  };
-
-  // Fire the function to load the application
-  loadInitialRoute(window.location.pathname);
-
-  // DOM -> Get the active attribute routes -> attatach event listeners -> on click -> pushState
-  window.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM content loaded');
-    app = document.getElementById('app');
+  registerDOMRoutes() {
     // The DOM nodes needs to be converted to an array in order to have array methods
-    activeRoutes = Array.from(document.querySelectorAll('[route]'));
-    activeRoutes.forEach(function(route) {
-      route.addEventListener('click', function(event) {
+    const DOMRoutes = Array.from(document.querySelectorAll('[route]'));
+    DOMRoutes.forEach(route => {
+      route.addEventListener('click', event => {
         event.preventDefault;
-        navigate(event);
+        this.btnNavigate(event);
       }, false);
-
+      // The this inside the event listener callback will be the element that fired the event
+      // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+      // https://stackoverflow.com/questions/43727516/javascript-how-adding-event-handler-inside-a-class-with-a-class-method-as-the-c/43727582
     });
-  });
-
-  // Popstate triggers if transition between two pages happens when pressing back/forward buttons in browser and on pushState
-  window.addEventListener('popstate', function(popstateEvent) {
-    reactOnURLChange(window.location.pathname);
-  });
+  };
+}

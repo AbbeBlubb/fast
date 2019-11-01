@@ -17,7 +17,7 @@ const imageElements = arrayOfImageNames.map(element => `
 `).join('');
 
 export const imageSection = `
-  <section class='image-section' role='contentinfo' aria-label='Section with photos'>
+  <section class='image-section' role='contentinfo' aria-label='Section with photos' id='content'>
     ${imageElements}
   </section>
 `;

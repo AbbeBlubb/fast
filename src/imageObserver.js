@@ -1,7 +1,7 @@
 import { browserSupportsIntersectionObserver }from './helpers';
 import { oneImageHasBeenLoaded } from './templates/dataLazy';
 
-class ImageObserver {
+export class ImageObserver {
 
   constructor() {
     this.images;
@@ -50,5 +50,3 @@ class ImageObserver {
     });
   }
 }
-
-export const imageObserverSingleton = new ImageObserver();

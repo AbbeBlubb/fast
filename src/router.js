@@ -13,10 +13,12 @@ export class Router {
     window.addEventListener('popstate', this.reactOnURLChange(window.location.pathname), false);
   }
 
-  // React when URL bar changes, needs litsener . App is null if the value is not set after dom content loaded
+  // Fires: 1, when popstate, 2, when btnNavigate after DOM button is clicked
   reactOnURLChange(currentPath) {
     const routeToLoad = this.routes.find(routeObject => routeObject.path === currentPath);
-    routeToLoad.navigationHandler();
+    routeToLoad
+      ? routeToLoad.navigationHandler()
+      : document.getElementById('app').innerHTML = HTMLStringNotFound;
   };
 
   // Function to be called in index.js to load the initial view

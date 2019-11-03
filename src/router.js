@@ -63,4 +63,5 @@ export class Router {
       // https://stackoverflow.com/questions/43727516/javascript-how-adding-event-handler-inside-a-class-with-a-class-method-as-the-c/43727582
     });
   };
+
 }

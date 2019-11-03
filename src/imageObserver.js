@@ -37,7 +37,7 @@ export class ImageObserver {
       // Is the image in viewport?
       if (entry.isIntersecting) {
         // Load the image and stop watching. The image is accessible in entry.target
-        console.log(entry);
+        console.log('Intersecting image: ', entry);
         const image = entry.target;
         image.src = image.dataset.src;
         image.alt = image.dataset.alt;

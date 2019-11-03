@@ -5,7 +5,7 @@ import { HTMLStringFastness } from './views/fastness';
 import { aboutSectionLazy } from './templates/aboutSectionLazy';
 import { dataLazy, resetCounterForImageLoader } from './templates/dataLazy';
 import { imageSection } from './templates/imageSection';
-import { ImageObserver } from './ImageObserver';
+import { imageObserverSingleton } from './index';
 
 import { aboutSectionInfinite } from './templates/aboutSectionInfinite';
 import { dataInfinite } from './templates/dataInfinite';
@@ -25,7 +25,6 @@ import { featureSection } from './templates/featureSection';
         resetCounterForImageLoader();
         document.getElementById('data').outerHTML = dataLazy;
         document.getElementById('content').outerHTML = imageSection;
-        const imageObserverSingleton = new ImageObserver();
         imageObserverSingleton.onLoaded();
       },
       loadInitialPage: HTMLStringLazy

@@ -1,0 +1,25 @@
+.scroll-section {
+  max-width: 1610px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__lazy-image {
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+  }
+
+  .fade-in {
+    animation-name: fade-in;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+  }        
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

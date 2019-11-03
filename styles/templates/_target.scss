@@ -1,0 +1,65 @@
+.target-placeholder {
+  width: 100%;
+  max-width: 360px;
+  height: 140px;
+  margin: 20px 10px 30px 10px;
+
+  &__background {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    background-size: 1000px;
+    height: 140px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @keyframes placeHolderShimmer {
+    0% {
+        background-position: -468px 0
+    }
+
+    100% {
+        background-position: 468px 0
+    }
+  }
+
+  &__vertical-line {
+    background: #FFF;
+    width: 20px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 100px;
+  }
+
+  &__rectangle-first {
+    background: #FFF;
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 100px;
+  }
+
+  &__horizontal-line-second {
+    background: #FFF;
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    top: 60px;
+    left: 100px;
+  }
+
+  &__horizontal-line-third {
+    background: #FFF;
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    top: 100px;
+  }
+}

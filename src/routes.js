@@ -7,9 +7,9 @@ import { dataLazy, resetCounterForImageLoader } from './templates/dataLazy';
 import { imageSection } from './templates/imageSection';
 import { imageObserverSingleton } from './index';
 
-import { aboutSectionInfinite } from './templates/aboutSectionInfinite';
-import { dataInfinite } from './templates/dataInfinite';
-import { scrollSection } from './templates/scrollSection';
+import { aboutSectionInfinite } from './templates/infinite/aboutSectionInfinite';
+import { dataInfinite } from './templates/infinite/dataInfinite';
+import { scrollSection } from './templates/infinite/scrollSection';
 
 import { aboutSectionFastness } from './templates/aboutSectionFastness';
 import { dataFastness } from './templates/dataFastness';

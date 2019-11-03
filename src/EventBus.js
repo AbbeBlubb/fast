@@ -1,7 +1,9 @@
 /**
+ * 🚌
  * Publisher / subscription pattern.
- * Every subscriber can subscribe to a specific event.
- * A subscriber will be notified when the event it subscribes to is published on the event bus.
+ * A subscriber can subscribe to a specific event type. A publisher can publish to a specific event type.
+ * Subscription of event type with function -> the subscription is registered as the contract specifies in subscriptions.js
+ * Publish on an event type -> fires all functions of the specific event type -> the subscriber is notified
  */
 
 export class EventBus {

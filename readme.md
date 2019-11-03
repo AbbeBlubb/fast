@@ -9,9 +9,8 @@ Webpack
 JS
 - IntersectionObserve
 - Markup logic with template literals
-- Interaction with event listeners on elements and window
 - Handler for outline when user is tabbing or clicking
-- Routing: iniial page on URL request, pushState for DOM buttons, popstate for reacting on URL change and change elements
+- Routing: iniial page on URL request, pushState for DOM buttons, popstate for reacting on URL change and change DOM elements
 
 CSS
 - Image fade-in animation

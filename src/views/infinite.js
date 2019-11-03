@@ -1,8 +1,8 @@
 import { header} from '../templates/header';
 import { navigation } from '../templates/navigation';
-import { aboutSectionInfinite } from '../templates/aboutSectionInfinite';
-import { dataInfinite } from '../templates/dataInfinite';
-import { scrollSection } from '../templates/scrollSection';
+import { aboutSectionInfinite } from '../templates/infinite/aboutSectionInfinite';
+import { dataInfinite } from '../templates/infinite/dataInfinite';
+import { scrollSection } from '../templates/infinite/scrollSection';
 import { scrollToTopBtn } from '../templates/scrollToTopBtn';
 
 

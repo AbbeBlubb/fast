@@ -1,5 +1,5 @@
 export const dataInfinite = `
   <div class='data' id='data'>
-    dataInfinte
+    Index history Elements in DOM Recently ad Recently re
   </div>
 `;

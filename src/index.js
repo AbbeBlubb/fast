@@ -13,8 +13,6 @@ smoothscroll.polyfill();
 
 // Event bus
 export const eventBusSingleton = new EventBus(subscriptions);
-eventBusSingleton.publish('firstTestEvent');
-eventBusSingleton.publish('secondTestEvent');
 
 // Router
 const routerSingleton = new Router(routes);

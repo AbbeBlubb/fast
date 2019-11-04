@@ -1,3 +1,4 @@
+import { eventBusSingleton } from './index';
 import { HTMLStringNotFound } from './views/notFound';
 
 
@@ -26,6 +27,7 @@ export class Router {
     const app = document.getElementById('app');
     const routeToLoad = this.routes.find(routeObject => routeObject.path === currentPath);
     app.innerHTML = routeToLoad ? routeToLoad.loadInitialPage :  HTMLStringNotFound;
+    eventBusSingleton.publish('navigationTabIsActive', currentPath);
   };
 
   // Fires: 1, when popstate, 2, when btnNavigate after DOM button is clicked
@@ -47,6 +49,7 @@ export class Router {
     } else {
       window.history.pushState({}, '', routeToLoad.path);
       this.reactOnURLChange(routeToLoad.path);
+      eventBusSingleton.publish('navigationTabIsActive', routeToLoad.path);
     }
   };
 

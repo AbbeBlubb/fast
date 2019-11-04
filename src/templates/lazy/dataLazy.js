@@ -1,4 +1,4 @@
-import { counter } from '../helpers';
+import { counter } from '../../helpers';
 
 
 let counterForImageLoader = 0;

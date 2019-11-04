@@ -2,7 +2,7 @@ import {
   browserSupportsIntersectionObserver,
   tinyTransparentGif,
   getShuffledEntriesIntoArray
-} from '../helpers';
+} from '../../helpers';
 
 
 const arrayOfImageNames = getShuffledEntriesIntoArray(20, undefined);

@@ -1,8 +1,8 @@
 import { header} from '../templates/header';
 import { navigation } from '../templates/navigation';
-import { aboutSectionFastness } from '../templates/aboutSectionFastness';
-import { dataFastness } from '../templates/dataFastness';
-import { featureSection } from '../templates/featureSection';
+import { aboutSectionFastness } from '../templates/fastness/aboutSectionFastness';
+import { dataFastness } from '../templates/fastness/dataFastness';
+import { featureSection } from '../templates/fastness/featureSection';
 import { scrollToTopBtn } from '../templates/scrollToTopBtn';
 
 

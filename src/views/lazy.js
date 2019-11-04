@@ -1,8 +1,8 @@
 import { header} from '../templates/header';
 import { navigation } from '../templates/navigation';
-import { aboutSectionLazy } from '../templates/aboutSectionLazy';
-import { dataLazy } from '../templates/dataLazy';
-import { imageSection } from '../templates/imageSection';
+import { aboutSectionLazy } from '../templates/lazy/aboutSectionLazy';
+import { dataLazy } from '../templates/lazy/dataLazy';
+import { imageSection } from '../templates/lazy/imageSection';
 import { scrollToTopBtn } from '../templates/scrollToTopBtn';
 
 

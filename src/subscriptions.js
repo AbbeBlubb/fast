@@ -1,3 +1,5 @@
+import { navigationTabIsActive } from './templates/navigation';
+
 /**
  * Pre-made subscriptions for the event bus
  *
@@ -15,17 +17,11 @@
  **/
 
 export const subscriptions = {
-  firstTestEvent: {
-    1: function() {
-      console.log('Event bus test. First A');
-    },
-    2: function() {
-      console.log('Event bus test. First B');
-    }
-  },
-  secondTestEvent: {
-    3: function() {
-      console.log('Event bus test. Second A');
+
+  navigationTabIsActive: {
+    1: function(activePath) {
+      navigationTabIsActive(activePath);
     }
   }
+
 };

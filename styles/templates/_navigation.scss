@@ -13,6 +13,7 @@
     margin: 0 5px;
     background-color: transparent;
     border-bottom: 2px solid rgb(214, 248, 163);
+    transition: border-bottom 0.3s ease;
     font-family: 'Exo', sans-serif;
     font-style: italic;
     font-weight: 300;
@@ -29,9 +30,14 @@
       width: 0%;
       transition: width 0.3s ease, left 0.3s ease;
     }
+
     &:hover::after {
       width: 100%;
       left: 0;
+    }
+
+    &--is-active {
+      border-bottom: 2px solid rgb(115, 168, 36);
     }
   }
 }

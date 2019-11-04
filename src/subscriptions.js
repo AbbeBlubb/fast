@@ -1,4 +1,5 @@
 import { navigationTabIsActive } from './templates/navigation';
+import { oneImageHasBeenLoaded } from './templates/lazy/dataLazy';
 
 /**
  * Pre-made subscriptions for the event bus
@@ -19,9 +20,11 @@ import { navigationTabIsActive } from './templates/navigation';
 export const subscriptions = {
 
   navigationTabIsActive: {
-    1: function(activePath) {
-      navigationTabIsActive(activePath);
-    }
+    hardCoded1: function(activePath) { navigationTabIsActive(activePath); }
+  },
+
+  oneImageHasBeenLoaded: {
+    hardcoded2: function() { oneImageHasBeenLoaded(); }
   }
 
 };

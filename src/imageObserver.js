@@ -1,5 +1,6 @@
 import { browserSupportsIntersectionObserver }from './helpers';
-import { oneImageHasBeenLoaded } from './templates/lazy/dataLazy';
+import { eventBusSingleton } from './index';
+
 
 export class ImageObserver {
 
@@ -45,7 +46,7 @@ export class ImageObserver {
         image.classList.add('fade-in');
         // Because of 'this', imageObserver must be fed as arg to parent function
         imageObserver.unobserve(entry.target);
-        oneImageHasBeenLoaded();
+        eventBusSingleton.publish('oneImageHasBeenLoaded');
       }
     });
   }

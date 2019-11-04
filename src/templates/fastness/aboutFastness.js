@@ -1,6 +1,6 @@
-export const aboutSectionInfinite = `
+export const aboutFastness = `
   <section class='about' role='contentinfo' aria-label='About the project' id='about'>
     <p class='about-description'>
-      About the infinite scroll
+      aboutFastness
     </p>
   </section>`;

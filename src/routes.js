@@ -2,16 +2,16 @@ import { HTMLStringLazy } from './views/lazy';
 import { HTMLStringInfinite } from './views/infinite';
 import { HTMLStringFastness } from './views/fastness';
 
-import { aboutSectionLazy } from './templates/lazy/aboutSectionLazy';
+import { aboutLazy } from './templates/lazy/aboutLazy';
 import { dataLazy, resetCounterForImageLoader } from './templates/lazy/dataLazy';
 import { imageSection } from './templates/lazy/imageSection';
 import { imageObserverSingleton } from './index';
 
-import { aboutSectionInfinite } from './templates/infinite/aboutSectionInfinite';
+import { aboutInfinite } from './templates/infinite/aboutInfinite';
 import { dataInfinite } from './templates/infinite/dataInfinite';
 import { scrollSection } from './templates/infinite/scrollSection';
 
-import { aboutSectionFastness } from './templates/fastness/aboutSectionFastness';
+import { aboutFastness } from './templates/fastness/aboutFastness';
 import { dataFastness } from './templates/fastness/dataFastness';
 import { featureSection } from './templates/fastness/featureSection';
 
@@ -21,7 +21,7 @@ import { featureSection } from './templates/fastness/featureSection';
       path: '/',
       name: 'Root',
       navigationHandler: function() {
-        document.getElementById('about').outerHTML = aboutSectionLazy;
+        document.getElementById('about').outerHTML = aboutLazy;
         resetCounterForImageLoader();
         document.getElementById('data').outerHTML = dataLazy;
         document.getElementById('content').outerHTML = imageSection;
@@ -33,7 +33,7 @@ import { featureSection } from './templates/fastness/featureSection';
       path: '/infinite',
       name: 'Infinite',
       navigationHandler: function() {
-        document.getElementById('about').outerHTML = aboutSectionInfinite;
+        document.getElementById('about').outerHTML = aboutInfinite;
         document.getElementById('data').outerHTML = dataInfinite;
         document.getElementById('content').outerHTML = scrollSection;
       },
@@ -43,7 +43,7 @@ import { featureSection } from './templates/fastness/featureSection';
       path: '/fastness',
       name: 'Fastness',
       navigationHandler: function() {
-        document.getElementById('about').outerHTML = aboutSectionFastness;
+        document.getElementById('about').outerHTML = aboutFastness;
         document.getElementById('data').outerHTML = dataFastness;
         document.getElementById('content').outerHTML = featureSection;
       },

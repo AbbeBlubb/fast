@@ -5,5 +5,7 @@ export const scrollSection = `
     ${target}
     ${target}
     ${target}
+    <ul class='scroll-section__ul'>
+    </ul>
   </section>
 `;

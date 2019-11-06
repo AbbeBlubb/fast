@@ -1,11 +1,4 @@
-// Logic for the observer and infinite scroll; try later to make a general observer
-
-// Article: https://medium.com/walmartlabs/infinite-scrolling-the-right-way-11b098a08815
-// Code (article is not complete; code is complete): https://jsfiddle.net/valkyris/43fmku20/693/
-// Have maby 20 elements on screen
-// when intersecting a sentinel, change the attribute of those 20 elements, and at the same time, increment the padding on top
-// This way, the elements are pushed down and changed (change maby 10 of 20?)
-// And no need to add / remove elements form the DOM
+import { tile } from './templates/infinite/tile';
 
 
 // List of all possible entries, simulating a DB
@@ -21,34 +14,50 @@ const initDB = num => {
 
   for (let i = 0; i < num; i++) {
     db.push({
-      userPhotoURL: i
+      indexNumber: i
     });
   }
-  console.log(db)
+
   return db;
 };
 
-const initList = num => {
+const initDOMList = num => {
   const container = document.querySelector('.scroll-section__ul');
 
-  // Create the tiles with id:s and insert in the container
   for (let i = 0; i < num; i++) {
-
-    const tile = `
-      <li class='scroll-section__li' id='tile-${i}'>
-        <img src=${DB[i]}>
-      </li>
-    `;
-
-    container.insertAdjacentHTML('beforeend', tile);
+    container.insertAdjacentHTML('beforeend', tile(i+1));
   }
+};
+
+const initIntersectionObserver = () => {
+
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5
+    // In Edge the threshold is evaluated like 0 and fires when the intersectionRatio is 0.0, why?
+  };
+
+  const callback = entries => {
+    entries.forEach(entry => {
+      if (entry.target.id === 'tile-0') {
+        console.log(entry);
+      } else if (entry.target.id === `tile-${DOMListSize}`) {
+        console.log(entry);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(callback, options);
+  observer.observe(document.querySelector('#tile-1'));
+  observer.observe(document.querySelector(`#tile-${DOMListSize}`)); // The id for the tile is index-num + 1
 
 };
 
 const start = () => {
   DB = initDB(DBSize);
-  initList(DOMListSize);
-  //initIntersectionObserver();
+  initDOMList(DOMListSize);
+  initIntersectionObserver();
 };
 
 window.onload = () => start();

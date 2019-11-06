@@ -2,6 +2,10 @@
   max-width: 380px;
   margin: 0 auto;
 
+  &__ul {
+    padding: 0;
+  }
+
   /*
   &__lazy-image {
     width: 300px;

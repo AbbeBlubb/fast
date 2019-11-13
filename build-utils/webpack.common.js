@@ -5,22 +5,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
 
-const config = {
-
-  //mode: 'development', //FIXA DETTA FÖR PROD
+module.exports = {
 
   entry: {
     bundle: './src/index.js'
   },
 
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, '../', 'build'),
     filename: '[name].js',
     chunkFilename: '[name].js',
     publicPath: ''
   },
-
-  devtool: 'source-map',
 
   optimization: {
     splitChunks: {
@@ -35,7 +31,7 @@ const config = {
   },
 
   devServer: {
-    contentBase: path.join(__dirname, 'build'),
+    contentBase: path.resolve(__dirname, '../', 'build'),
     port: 8000,
     //To load index.html in any 404 responses:
     historyApiFallback: true
@@ -71,7 +67,7 @@ const config = {
 
     // För att kunna ladda in bundlar dynamiskt i ett index.html. Behövs för webpack dev server då den feedar från build-mappen
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: './src/index.html'
     }),
 
     new MiniCssExtractPlugin({
@@ -82,5 +78,3 @@ const config = {
 
   ]
 };
-
-module.exports = config;

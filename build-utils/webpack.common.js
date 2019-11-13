@@ -1,7 +1,8 @@
 // ES2015 module system import and export will not work in this file. Use require and module.exports
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
@@ -76,6 +77,8 @@ module.exports = {
   },
 
   plugins: [
+
+    new CleanWebpackPlugin(),
 
     // För att kunna ladda in bundlar dynamiskt i ett index.html. Behövs för webpack dev server då den feedar från build-mappen
     new HtmlWebpackPlugin({

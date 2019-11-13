@@ -1,6 +1,7 @@
 ## Features
 
 Webpack
+- Config for dev and prod
 - webpack dev server
 - Babel
 - SCSS
@@ -22,6 +23,7 @@ Other
 - BEM
 
 Want to do:
+- image-webpack-loader (compression) and url-loader (base 64)
 - Hash/chunkhash working in development
 - System.import() for module routing
 - webpack config prod settings

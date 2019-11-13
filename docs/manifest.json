@@ -1,6 +1,0 @@
-{
-  "bundle.css": "build/bundle.css",
-  "bundle.js": "build/bundle.js",
-  "vendors.js": "build/vendors.js",
-  "index.html": "build/index.html"
-}

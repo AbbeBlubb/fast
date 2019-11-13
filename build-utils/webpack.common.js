@@ -3,6 +3,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 
 module.exports = {
@@ -59,7 +60,18 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ]
+      },
+
+      {
+        test: /\.(png|svg|jpg|gif|ico)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '/assets/[name].[ext]' // [path][name].[ext]
+          }
+        }
       }
+
     ]
   },
 
@@ -74,7 +86,11 @@ module.exports = {
       filename: '[name].css'
     }),
 
-    new ManifestPlugin()
+    new ManifestPlugin(),
+
+    new CopyPlugin([
+      { from: 'src/assets-href', to: 'assets-href' }
+    ])
 
   ]
 };

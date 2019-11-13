@@ -1,0 +1,13 @@
+{
+  "vendors.js": "vendors.js",
+  "vendors.js.map": "vendors.js.map",
+  "build/bundle.css": "build/bundle.css",
+  "build/bundle.js": "build/bundle.js",
+  "build/bundle.css.map": "build/bundle.css.map",
+  "build/bundle.js.map": "build/bundle.js.map",
+  "docs/bundle.css": "docs/bundle.css",
+  "docs/bundle.js": "docs/bundle.js",
+  "docs/bundle.css.map": "docs/bundle.css.map",
+  "docs/bundle.js.map": "docs/bundle.js.map",
+  "index.html": "index.html"
+}

@@ -6,7 +6,6 @@ import { Router } from './Router';
 import { routes } from './routes';
 import { ImageObserver } from './ImageObserver';
 import { OutlineHandler } from './OutlineHandler';
-import './ScrollObserver';
 
 
 //Polyfill needs to be called in order to make scrollTo.behavior work in all browsers

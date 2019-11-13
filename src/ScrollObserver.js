@@ -62,7 +62,7 @@ const start = () => {
 };
 
 window.onload = () => start();
-
+export const temporaryStart = () => start();
 
 
 // Var for the sentinel callbacks

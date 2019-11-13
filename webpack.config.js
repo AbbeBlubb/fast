@@ -7,7 +7,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 
 const config = {
 
-  mode: 'development', //FIXA DETTA FÖR PROD
+  //mode: 'development', //FIXA DETTA FÖR PROD
 
   entry: {
     bundle: './src/index.js'
@@ -17,8 +17,10 @@ const config = {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].js',
     chunkFilename: '[name].js',
-    publicPath: 'build/'
+    publicPath: ''
   },
+
+  devtool: 'source-map',
 
   optimization: {
     splitChunks: {
@@ -33,7 +35,7 @@ const config = {
   },
 
   devServer: {
-    contentBase: './build',
+    contentBase: path.join(__dirname, 'build'),
     port: 8000,
     //To load index.html in any 404 responses:
     historyApiFallback: true

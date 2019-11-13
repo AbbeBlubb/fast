@@ -14,6 +14,7 @@ import { scrollSection } from './templates/infinite/scrollSection';
 import { aboutFastness } from './templates/fastness/aboutFastness';
 import { dataFastness } from './templates/fastness/dataFastness';
 import { featureSection } from './templates/fastness/featureSection';
+import { temporaryStart } from './ScrollObserver'; // THIS FUNCTION IS TEMPORARY
 
   // Register rout info for each route that will decide content in the SPA
   export const routes = [
@@ -36,6 +37,7 @@ import { featureSection } from './templates/fastness/featureSection';
         document.getElementById('about').outerHTML = aboutInfinite;
         document.getElementById('data').outerHTML = dataInfinite;
         document.getElementById('content').outerHTML = scrollSection;
+        temporaryStart();
       },
       loadInitialPage: HTMLStringInfinite
     },

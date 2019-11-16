@@ -31,3 +31,9 @@ Want to do:
 - infinite scroll
 
 <p>⚡ Lazy-loading and code splitting ⚡</p>
+
+
+
+Copy-Item -Path "C:\Users\alber\Documents\lazy-loading\build\*" -Destination "C:\Users\alber\Documents\lazy-loading\docs" -Recurse
+
+cp -r build/* docs/

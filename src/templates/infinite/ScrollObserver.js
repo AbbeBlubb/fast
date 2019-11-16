@@ -27,7 +27,7 @@ const initDOMList = num => {
   const container = document.querySelector('.scroll-section__ul');
 
   for (let i = 0; i < num; i++) {
-    container.insertAdjacentHTML('beforeend', tile(i+1, DOMListSize, DB[i].indexNumber, DBSize));
+    container.insertAdjacentHTML('beforeend', tile(i + 1, DOMListSize, DB[i].indexNumber + 1, DBSize));
   }
 };
 
@@ -145,6 +145,6 @@ const recycleDOM = firstIndex => {
   for (let i = 0; i < DOMListSize; i++) {
     // Get each of the elements with the CSS id
     const targetTile = document.querySelector(`#tile-${i + 1}`);
-    targetTile.querySelector('.tile-placeholder__index').innerText = `${firstIndex + i}`;
+    targetTile.querySelector('.tile-info__index').innerText = `${firstIndex + i +1}`;
   }
 };

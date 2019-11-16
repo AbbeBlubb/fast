@@ -18,7 +18,7 @@ export const tile = (elementIndexNumber, DOMListSize, DBIndexNumber, DBSize) => 
         <div class='tile-info__cell-4 right'>${DOMListSize}</div>
 
         <div class='tile-info__cell-5'>Containing array index item</div>
-        <div class='tile-info__cell-6 right bold'><span class='tile-placeholder__index'>${DBIndexNumber}</span></div>
+        <div class='tile-info__cell-6 right bold'><span class='tile-info__index'>${DBIndexNumber}</span></div>
         <div class='tile-info__cell-7'>of</div>
         <div class='tile-info__cell-8 right'>${DBSize}</div>
 

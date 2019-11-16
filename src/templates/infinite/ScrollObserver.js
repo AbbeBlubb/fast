@@ -1,5 +1,6 @@
 import { tile } from './tile';
 import { getSlidingWindow } from './getSlidingWindow';
+import { eventBusSingleton } from '../../index';
 
 
 // List of all possible entries, simulating a DB
@@ -105,11 +106,12 @@ export const bottomSentinelCallback = entry => {
     adjustPaddings(true);
     recycleDOM(firstIndex);
     currentIndex = firstIndex;
+
+    eventBusSingleton.publish('oneRecyclingHasBeenDone');
   }
 
   bottomSentinelPreviousY = currentY;
   bottomSentinelPreviousRatio = currentRatio;
-
 };
 
 

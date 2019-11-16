@@ -1,5 +1,6 @@
 import { navigationTabIsActive } from '../templates/navigation';
-import { oneImageHasBeenLoaded } from '../templates/lazy/dataLazy';
+import { oneImageHasBeenLoaded, resetCounterForImageLoader } from '../templates/lazy/dataLazy';
+import { oneRecyclingHasBeenDone, resetCounterForRecycling } from '../templates/infinite/dataInfinite';
 
 /**
  * Pre-made subscriptions for the event bus
@@ -25,6 +26,18 @@ export const subscriptions = {
 
   oneImageHasBeenLoaded: {
     hardcoded2: function() { oneImageHasBeenLoaded(); }
+  },
+
+  resetImageCounter: {
+    hardcoded3: function() { resetCounterForImageLoader(); }
+  },
+
+  oneRecyclingHasBeenDone: {
+    hardcoded4: function() { oneRecyclingHasBeenDone(); }
+  },
+
+  resetRecyclingCounter: {
+    hardcoded5: function() { resetCounterForRecycling(); }
   }
 
 };

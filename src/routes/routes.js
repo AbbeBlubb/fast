@@ -3,9 +3,9 @@ import { HTMLStringInfinite } from '../views/infinite';
 import { HTMLStringFastness } from '../views/fastness';
 
 import { aboutLazy } from '../templates/lazy/aboutLazy';
-import { dataLazy, resetCounterForImageLoader } from '../templates/lazy/dataLazy';
+import { dataLazy } from '../templates/lazy/dataLazy';
 import { imageSection } from '../templates/lazy/imageSection';
-import { imageObserverSingleton } from '../index';
+import { imageObserverSingleton, eventBusSingleton } from '../index';
 
 import { aboutInfinite } from '../templates/infinite/aboutInfinite';
 import { dataInfinite } from '../templates/infinite/dataInfinite';
@@ -16,6 +16,7 @@ import { dataFastness } from '../templates/fastness/dataFastness';
 import { featureSection } from '../templates/fastness/featureSection';
 import { temporaryStart } from '../templates/infinite/ScrollObserver'; // THIS FUNCTION IS TEMPORARY
 
+
   // Register rout info for each route that will decide content in the SPA
   export const routes = [
     {
@@ -23,7 +24,7 @@ import { temporaryStart } from '../templates/infinite/ScrollObserver'; // THIS F
       name: 'Root',
       navigationHandler: function() {
         document.getElementById('about').outerHTML = aboutLazy;
-        resetCounterForImageLoader();
+        eventBusSingleton.publish('resetImageCounter');
         document.getElementById('data').outerHTML = dataLazy;
         document.getElementById('content').outerHTML = imageSection;
         imageObserverSingleton.onLoaded();
@@ -35,6 +36,7 @@ import { temporaryStart } from '../templates/infinite/ScrollObserver'; // THIS F
       name: 'Infinite',
       navigationHandler: function() {
         document.getElementById('about').outerHTML = aboutInfinite;
+        eventBusSingleton.publish('resetRecyclingCounter');
         document.getElementById('data').outerHTML = dataInfinite;
         document.getElementById('content').outerHTML = scrollSection;
         temporaryStart();

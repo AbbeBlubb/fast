@@ -26,7 +26,7 @@ const initDOMList = num => {
   const container = document.querySelector('.scroll-section__ul');
 
   for (let i = 0; i < num; i++) {
-    container.insertAdjacentHTML('beforeend', tile(i+1, DOMListSize));
+    container.insertAdjacentHTML('beforeend', tile(i+1, DOMListSize, DB[i].indexNumber, DBSize));
   }
 };
 
@@ -142,7 +142,7 @@ const recycleDOM = firstIndex => {
   // DOMListSize is 20, virutally representing the DOM elements:
   for (let i = 0; i < DOMListSize; i++) {
     // Get each of the elements with the CSS id
-    const tile = document.querySelector(`#tile-${i+1}`);
-    tile.firstElementChild.innerText = 'hello'
+    const targetTile = document.querySelector(`#tile-${i + 1}`);
+    targetTile.querySelector('.tile-placeholder__index').innerText = `${firstIndex + i}`;
   }
 };

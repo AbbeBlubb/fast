@@ -1,66 +1,92 @@
-.tile-placeholder {
+.tile {
   list-style: none;
   width: 100%;
   max-width: 360px;
   height: 140px;
-  margin: 30px 10px 30px 10px;
+  margin: 30px 10px 50px 10px;
+  position: relative;
+  overflow: hidden;
 
-  &__background {
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-name: placeHolderShimmer;
-    animation-timing-function: linear;
-    background: #f6f7f8;
-    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-    background-size: 1000px;
-    height: 140px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  @keyframes placeHolderShimmer {
-    0% {
-        background-position: -468px 0
+  &-placeholder {
+    &__background {
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-name: placeHolderShimmer;
+      animation-timing-function: linear;
+      background: #f6f7f8;
+      background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+      background-size: 1000px;
+      height: 140px;
     }
 
-    100% {
-        background-position: 468px 0
+    @keyframes placeHolderShimmer {
+      0% {
+          background-position: -468px 0
+      }
+
+      100% {
+          background-position: 468px 0
+      }
+    }
+
+    &__vertical-line {
+      background: #FFF;
+      width: 20px;
+      height: 100px;
+      position: absolute;
+      top: 0;
+      left: 100px;
+    }
+
+    &__rectangle-first {
+      background: #FFF;
+      width: 100%;
+      height: 40px;
+      position: absolute;
+      top: 0;
+      left: 120px;
+    }
+
+    &__horizontal-line-second {
+      background: #FFF;
+      width: 100%;
+      height: 20px;
+      position: absolute;
+      top: 60px;
+      left: 120px;
+    }
+
+    &__horizontal-line-third {
+      background: #FFF;
+      width: 100%;
+      height: 20px;
+      position: absolute;
+      top: 100px;
     }
   }
 
-  &__vertical-line {
-    background: #FFF;
-    width: 20px;
-    height: 100px;
+  &-info {
     position: absolute;
     top: 0;
-    left: 100px;
-  }
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      grid-auto-rows: auto;
+      white-space: nowrap;
+      grid-gap: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      background: rgba(170, 250, 200, 0.4);
+      position: absolute;
+      top:50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
 
-  &__rectangle-first {
-    background: #FFF;
-    width: 100%;
-    height: 40px;
-    position: absolute;
-    top: 0;
-    left: 120px;
-  }
-
-  &__horizontal-line-second {
-    background: #FFF;
-    width: 100%;
-    height: 20px;
-    position: absolute;
-    top: 60px;
-    left: 120px;
-  }
-
-  &__horizontal-line-third {
-    background: #FFF;
-    width: 100%;
-    height: 20px;
-    position: absolute;
-    top: 100px;
   }
 }

@@ -11,3 +11,13 @@ body {
 // Variables
 
 $app-width:  calc((300px * 5) + 80px); // 5 images x 300 px, 80px in margins inbetween the images
+
+// Helpers
+
+.right {
+  text-align: right;
+}
+
+.bold {
+  font-weight: bold;
+}

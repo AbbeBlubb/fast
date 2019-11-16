@@ -1,10 +1,10 @@
 import '../styles/styles.scss';
 import smoothscroll from 'smoothscroll-polyfill';
-import { EventBus } from './EventBus';
-import { subscriptions } from './subscriptions';
-import { Router } from './Router';
-import { routes } from './routes';
-import { ImageObserver } from './ImageObserver';
+import { EventBus } from './event/EventBus';
+import { subscriptions } from './event/subscriptions';
+import { Router } from './routes/Router';
+import { routes } from './routes/routes';
+import { ImageObserver } from './templates/lazy/ImageObserver';
 import { OutlineHandler } from './OutlineHandler';
 
 

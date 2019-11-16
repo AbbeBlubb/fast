@@ -1,5 +1,5 @@
-import { tile } from './templates/infinite/tile';
-import { getSlidingWindow } from './templates/infinite/getSlidingWindow';
+import { tile } from './tile';
+import { getSlidingWindow } from './getSlidingWindow';
 
 
 // List of all possible entries, simulating a DB

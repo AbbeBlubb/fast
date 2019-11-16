@@ -1,20 +1,20 @@
-import { HTMLStringLazy } from './views/lazy';
-import { HTMLStringInfinite } from './views/infinite';
-import { HTMLStringFastness } from './views/fastness';
+import { HTMLStringLazy } from '../views/lazy';
+import { HTMLStringInfinite } from '../views/infinite';
+import { HTMLStringFastness } from '../views/fastness';
 
-import { aboutLazy } from './templates/lazy/aboutLazy';
-import { dataLazy, resetCounterForImageLoader } from './templates/lazy/dataLazy';
-import { imageSection } from './templates/lazy/imageSection';
-import { imageObserverSingleton } from './index';
+import { aboutLazy } from '../templates/lazy/aboutLazy';
+import { dataLazy, resetCounterForImageLoader } from '../templates/lazy/dataLazy';
+import { imageSection } from '../templates/lazy/imageSection';
+import { imageObserverSingleton } from '../index';
 
-import { aboutInfinite } from './templates/infinite/aboutInfinite';
-import { dataInfinite } from './templates/infinite/dataInfinite';
-import { scrollSection } from './templates/infinite/scrollSection';
+import { aboutInfinite } from '../templates/infinite/aboutInfinite';
+import { dataInfinite } from '../templates/infinite/dataInfinite';
+import { scrollSection } from '../templates/infinite/scrollSection';
 
-import { aboutFastness } from './templates/fastness/aboutFastness';
-import { dataFastness } from './templates/fastness/dataFastness';
-import { featureSection } from './templates/fastness/featureSection';
-import { temporaryStart } from './ScrollObserver'; // THIS FUNCTION IS TEMPORARY
+import { aboutFastness } from '../templates/fastness/aboutFastness';
+import { dataFastness } from '../templates/fastness/dataFastness';
+import { featureSection } from '../templates/fastness/featureSection';
+import { temporaryStart } from '../templates/infinite/ScrollObserver'; // THIS FUNCTION IS TEMPORARY
 
   // Register rout info for each route that will decide content in the SPA
   export const routes = [

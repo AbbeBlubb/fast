@@ -1,5 +1,5 @@
-import { eventBusSingleton } from './index';
-import { HTMLStringNotFound } from './views/notFound';
+import { eventBusSingleton } from '../index';
+import { HTMLStringNotFound } from '../views/notFound';
 
 
 export class Router {

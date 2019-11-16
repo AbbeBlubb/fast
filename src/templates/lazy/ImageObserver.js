@@ -1,5 +1,5 @@
-import { browserSupportsIntersectionObserver }from './helpers';
-import { eventBusSingleton } from './index';
+import { browserSupportsIntersectionObserver }from '../../helpers';
+import { eventBusSingleton } from '../../index';
 
 
 export class ImageObserver {

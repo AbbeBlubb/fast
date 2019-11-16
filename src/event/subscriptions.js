@@ -1,5 +1,5 @@
-import { navigationTabIsActive } from './templates/navigation';
-import { oneImageHasBeenLoaded } from './templates/lazy/dataLazy';
+import { navigationTabIsActive } from '../templates/navigation';
+import { oneImageHasBeenLoaded } from '../templates/lazy/dataLazy';
 
 /**
  * Pre-made subscriptions for the event bus

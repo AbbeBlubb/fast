@@ -10,32 +10,39 @@ export const featureSection = `
 
     <ul>
       <li>
-        The project is built in plain JavaScript, meaning the code is as lightweight it can be -
+        The project is built in <span class='bold'>plain JavaScript</span>, meaning the code is as lightweight it can be -
         thus avoiding the need for the client to load a framework.
+        You can look at all the files in the inspector source tab, select webpack.
       </li>
       <li>
-        For this reason, I built my own routing and an event bus.
+        For this reason, I built my own <span class='bold'>routing</span> and <span class='bold'>event bus</span>.
       </li>
       <li>
-        The image loader uses intersection observer to load images as they are needed,
+        The image loader uses intersection observer to <span class='bold'>load images as they are needed</span>,
         thus avoiding to load unnessesary content.
         You can follow the loading in the inspector network tab.
       </li>
       <li>
-        The infinite scroll uses intersection observer to re-calculate the position of the elements cluster and to update the content of the elements.
-        This way the DOM only contains 20 elements - light and fast to process, in contrast to having a very large DOM full of content.
+        The infinite scroll uses intersection observer to re-calculate the position of the elements cluster and to update the content of the elements;
+        a <span class='bold'>recycling of the elements</span>.
+        This way the DOM constantly only contains 20 elements - light and fast to process, in contrast to having a very large DOM full of content.
         The user is given a seamless scrolling experience.
         You can follow the recycling in the inspector elements panel.
       </li>
       <li>
         Webpack is configured for development and production.
-        The configuration includes code-splitting to facilitate browser caching.
+        The configuration includes <span class='bold'>code-splitting</span> to facilitate browser caching.
       </li>
     </ul>
 
     <p>
-      All this gives the user a fast-loading experience with minimum of code loading and processing.
+      All this gives the user a <span class='bold'>fast-loading experience with minimum of code loading and processing</span>.
       The project is responsive and built as mobile first.
+    </p>
+
+    <p>
+      Focus has also been given to <span class='bold'>accessibility</span> and user friendliness.
+      The page is fully tabbable and listens to tab and mouse events to give specific styling properties.
     </p>
 
   </section>

@@ -26,7 +26,7 @@ export class Router {
   loadInitialRoute(currentPath) {
     console.log(currentPath);
     const app = document.getElementById('app');
-    const routeToLoad = this.routes.find(routeObject => routeObject.path === currentPath);
+    const routeToLoad = this.routes.find(routeObject => (routeObject.path || routeObject.pathGitHub) === currentPath);
     app.innerHTML = routeToLoad ? routeToLoad.loadInitialPage :  HTMLStringNotFound;
     eventBusSingleton.publish('navigationTabIsActive', currentPath);
   };

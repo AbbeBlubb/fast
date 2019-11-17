@@ -24,6 +24,7 @@ export class Router {
 
   // Function to be called in index.js to load the initial view
   loadInitialRoute(currentPath) {
+    console.log(currentPath);
     const app = document.getElementById('app');
     const routeToLoad = this.routes.find(routeObject => routeObject.path === currentPath);
     app.innerHTML = routeToLoad ? routeToLoad.loadInitialPage :  HTMLStringNotFound;

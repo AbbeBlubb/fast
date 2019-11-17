@@ -44,8 +44,8 @@ const initIntersectionObserver = () => {
 
   const callback = entries => {
     entries.forEach(entry => {
-      if (entry.target.id === 'tile-0') {
-        //console.log(entry);
+      if (entry.target.id === 'tile-1') {
+        topSentinelCallback(entry);
       } else if (entry.target.id === `tile-${DOMListSize}`) {
         bottomSentinelCallback(entry);
       }
@@ -114,4 +114,44 @@ const bottomSentinelCallback = entry => {
 
   bottomSentinelPreviousY = currentY;
   bottomSentinelPreviousRatio = currentRatio;
+};
+
+
+// Callback for the top sentinel
+
+let topSentinelPreviousY = 0;
+let topSentinelPreviousRatio = 0;
+
+const topSentinelCallback = entry => {
+
+  /*
+  // Reset paddings if on top; maby overkill
+  if (currentIndex === 0) {
+    const container = document.querySelector('.scroll-section__ul');
+    container.style.paddingTop = '0px';
+    container.style.paddingBottom = '0px';
+  }*/
+
+  const currentY = entry.boundingClientRect.top;
+  const currentRatio = entry.intersectionRatio;
+  const isIntersecting = entry.isIntersecting;
+
+  // conditional check for Scrolling up
+  if (
+    currentY > topSentinelPreviousY &&
+    isIntersecting &&
+    currentRatio >= topSentinelPreviousRatio &&
+    currentIndex !== 0
+  ) {
+    const firstIndex = seamlessJumpForTiles(false, DOMListSize, currentIndex);
+    adjustPaddings(false, DOMListSize);
+    recycleDOM(firstIndex, DOMListSize);
+    currentIndex = firstIndex;
+
+    eventBusSingleton.publish('oneRecyclingHasBeenDone');
+  }
+
+  topSentinelPreviousY = currentY;
+  topSentinelPreviousRatio = currentRatio;
+
 };

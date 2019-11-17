@@ -10,10 +10,10 @@ export const adjustPaddings = (isScrollDown, DOMListSize) => {
   const remPaddingsVal = 190 * (DOMListSize / 2);
 
   if (isScrollDown) {
-    container.style.paddingTop = currentPaddingTop + remPaddingsVal + "px";
-    container.style.paddingBottom = currentPaddingBottom === 0 ? "0px" : currentPaddingBottom - remPaddingsVal + "px";
+    container.style.paddingTop = currentPaddingTop + remPaddingsVal + 'px';
+    container.style.paddingBottom = currentPaddingBottom === 0 ? '0px' : currentPaddingBottom - remPaddingsVal + 'px';
   } else {
-    container.style.paddingBottom = currentPaddingBottom + remPaddingsVal + "px";
-    container.style.paddingTop = currentPaddingTop === 0 ? "0px" : currentPaddingTop - remPaddingsVal + "px";
+    container.style.paddingTop = currentPaddingTop === 0 ? '0px' : currentPaddingTop - remPaddingsVal + 'px';
+    container.style.paddingBottom = currentPaddingBottom + remPaddingsVal + 'px';
   }
 };

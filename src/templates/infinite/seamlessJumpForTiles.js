@@ -10,7 +10,7 @@ export const seamlessJumpForTiles = (isScrollDown, DOMListSize, currentIndex) =>
     firstIndex = currentIndex + increment;
   } else {
     // Top sentinel callback, isScrollDown=false
-    // firstindex = 100-10-20 COMPARE WITH THE RIGHT CALLBACK
+    // firstindex = 100-10-20
     firstIndex = currentIndex - increment - DOMListSize;
   }
 

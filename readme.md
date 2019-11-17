@@ -23,7 +23,7 @@ Other
 - BEM
 
 Want to do:
-- image-webpack-loader (compression) and url-loader (base 64)
+- image-webpack-loader (compression) and url-loader (base 64; will disable the cashing functionality)
 - Hash/chunkhash working in development
 - System.import() for module routing
 - webpack config prod settings

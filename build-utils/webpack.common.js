@@ -1,9 +1,5 @@
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 
 
 module.exports = {
@@ -62,12 +58,24 @@ module.exports = {
 
       {
         test: /\.(png|svg|jpg|gif|ico)$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '/assets/[name].[ext]' // [path][name].[ext]
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '/assets/[name].[ext]' // [path][name].[ext]
+            }
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                enabled:true,
+                progressive: true,
+                quality: 65
+              }
+            }
           }
-        }
+        ]
       }
 
     ]
@@ -75,22 +83,9 @@ module.exports = {
 
   plugins: [
 
-    new CleanWebpackPlugin(),
-
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
-    }),
-
     new MiniCssExtractPlugin({
       filename: '[name].css'
-    }),
-
-    new ManifestPlugin(),
-
-    new CopyPlugin([{
-      from: 'src/assets-href',
-      to: 'assets-href'
-    }])
+    })
 
   ]
 };

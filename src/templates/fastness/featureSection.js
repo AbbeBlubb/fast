@@ -31,7 +31,7 @@ export const featureSection = `
       </li>
       <li>
         Webpack is configured for development and production.
-        The configuration includes <span class='bold'>code-splitting</span> to facilitate browser caching.
+        The configuration includes <span class='bold'>code-splitting</span> to facilitate browser caching and <span class='bold'>image compression</span>.
       </li>
     </ul>
 

@@ -34,7 +34,7 @@ Want to do:
 
 
 Powershell:
-Copy-Item -Path "C:\Users\alber\Documents\lazy-loading\build\*" -Destination "C:\Users\alber\Documents\lazy-loading\docs" -Recurse
+Copy-Item -Path "C:\Users\alber\Documents\fast\build\*" -Destination "C:\Users\alber\Documents\fast\docs" -Recurse
 
 Linux: will not overwrite files, so need to delete the files in the docs folder first
 cp -r build/* docs/

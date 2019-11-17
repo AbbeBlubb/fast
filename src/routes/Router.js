@@ -25,11 +25,11 @@ export class Router {
   };
 
   getBaseFromCurrentPath(currentPath) {
-    return currentPath === '/lazy-loading/' ? '/lazy-loading' : '';
+    return currentPath === '/fast/' ? '/fast' : '';
   }
 
   getRouteFromCurrentPath(currentPath) {
-    return currentPath.replace(/\/lazy-loading/g, '');
+    return currentPath.replace(/\/fast/g, '');
   }
 
   // Function to be called in index.js to load the initial view

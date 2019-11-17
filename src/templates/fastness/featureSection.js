@@ -42,7 +42,7 @@ export const featureSection = `
 
     <p>
       Focus has also been given to <span class='bold'>accessibility</span> and user friendliness.
-      The page is fully tabbable and listens to tab and mouse events to give specific styling properties.
+      The page is tabbable and listens to tab and mouse events to give specific styling properties.
     </p>
 
   </section>

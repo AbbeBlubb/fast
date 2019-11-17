@@ -1,4 +1,4 @@
-export const getSlidingWindow = (isScrollDown, DOMListSize, currentIndex) => {
+export const seamlessJumpForTiles = (isScrollDown, DOMListSize, currentIndex) => {
 
   // 20 / 2 = 10
   const increment = DOMListSize / 2;

@@ -1,5 +1,7 @@
 import { tile } from './tile';
-import { getSlidingWindow } from './getSlidingWindow';
+import { seamlessJumpForTiles } from './seamlessJumpForTiles';
+import { adjustPaddings } from './adjustPaddings';
+import { recycleDOM } from './recycleDOM';
 import { eventBusSingleton } from '../../index';
 
 
@@ -76,7 +78,7 @@ let currentIndex = 0;
 let bottomSentinelPreviousY = 0;
 let bottomSentinelPreviousRatio = 0;
 
-export const bottomSentinelCallback = entry => {
+const bottomSentinelCallback = entry => {
 
   // Return if current index is 180
   if (currentIndex === DBSize - DOMListSize) {
@@ -102,9 +104,9 @@ export const bottomSentinelCallback = entry => {
     isIntersecting
   ) {
     // firstIndex will be where the index starts in DB for rendering on DOM list
-    const firstIndex = getSlidingWindow(true, DOMListSize, currentIndex);
-    adjustPaddings(true);
-    recycleDOM(firstIndex);
+    const firstIndex = seamlessJumpForTiles(true, DOMListSize, currentIndex);
+    adjustPaddings(true, DOMListSize);
+    recycleDOM(firstIndex, DOMListSize);
     currentIndex = firstIndex;
 
     eventBusSingleton.publish('oneRecyclingHasBeenDone');
@@ -112,39 +114,4 @@ export const bottomSentinelCallback = entry => {
 
   bottomSentinelPreviousY = currentY;
   bottomSentinelPreviousRatio = currentRatio;
-};
-
-
-
-// Adjust paddings
-
-const adjustPaddings = isScrollDown => {
-
-  const container = document.querySelector('.scroll-section__ul');
-  const currentPaddingTop = getNumFromStyle(container.style.paddingTop);
-  const currentPaddingBottom = getNumFromStyle(container.style.paddingBottom);
-  const remPaddingsVal = 170 * (DOMListSize / 2);
-
-  if (isScrollDown) {
-    container.style.paddingTop = currentPaddingTop + remPaddingsVal + "px";
-    container.style.paddingBottom = currentPaddingBottom === 0 ? "0px" : currentPaddingBottom - remPaddingsVal + "px";
-  } else {
-    container.style.paddingBottom = currentPaddingBottom + remPaddingsVal + "px";
-    container.style.paddingTop = currentPaddingTop === 0 ? "0px" : currentPaddingTop - remPaddingsVal + "px";
-  }
-};
-
-const getNumFromStyle = numStr => Number(numStr.substring(0, numStr.length - 2));
-
-
-
-// Recycle the DOM elements
-
-const recycleDOM = firstIndex => {
-  // DOMListSize is 20, virutally representing the DOM elements:
-  for (let i = 0; i < DOMListSize; i++) {
-    // Get each of the elements with the CSS id
-    const targetTile = document.querySelector(`#tile-${i + 1}`);
-    targetTile.querySelector('.tile-info__index').innerText = `${firstIndex + i +1}`;
-  }
 };

@@ -21,7 +21,6 @@ import { temporaryStart } from '../templates/infinite/ScrollObserver'; // THIS F
   export const routes = [
     {
       path: '/',
-      pathGitHub: '/lazy-loading/',
       name: 'Root',
       navigationHandler: function() {
         document.getElementById('about').outerHTML = aboutLazy;

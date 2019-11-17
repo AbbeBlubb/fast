@@ -8,6 +8,8 @@ export class Router {
     // routes must be first in order to not be undefined when used
     this.routes = routes;
 
+    this.basePath = '';
+
     window.addEventListener('DOMContentLoaded', this.registerDOMRoutes.bind(this), false);
 
     // Popstate triggers if transition between two pages happens when pressing back/forward buttons in browser and on pushState
@@ -22,20 +24,30 @@ export class Router {
     }
   };
 
+  getBaseFromCurrentPath(currentPath) {
+    return currentPath === '/lazy-loading/' ? '/lazy-loading' : '';
+  }
+
+  getRouteFromCurrentPath(currentPath) {
+    return currentPath.replace(/\/lazy-loading/g, '');
+  }
+
   // Function to be called in index.js to load the initial view
   loadInitialRoute(currentPath) {
-    console.log(currentPath);
+    // When the app loads, store the basePath
+    this.basePath = this.getBaseFromCurrentPath(currentPath);
+    const routePath =this.getRouteFromCurrentPath(currentPath);
+    console.log('RoutePath: ', currentPath, 'basePath: ', this.basePath, 'routePath: ', routePath);
     const app = document.getElementById('app');
-    let routeToLoad = this.routes.find(routeObject => routeObject.path === currentPath);
-    if (routeToLoad === undefined) {routeToLoad = this.routes.find(routeObject => routeObject.pathGitHub === currentPath); }
+    const routeToLoad = this.routes.find(routeObject => routeObject.path === routePath);
     console.log(routeToLoad);
     app.innerHTML = routeToLoad ? routeToLoad.loadInitialPage :  HTMLStringNotFound;
-    eventBusSingleton.publish('navigationTabIsActive', currentPath);
+    eventBusSingleton.publish('navigationTabIsActive', routePath);
   };
 
   // Fires: 1, when popstate, 2, when btnNavigate after DOM button is clicked
-  reactOnURLChange(currentPath) {
-    const routeToLoad = this.routes.find(routeObject => routeObject.path === currentPath);
+  reactOnURLChange(routePath) {
+    const routeToLoad = this.routes.find(routeObject => routeObject.path === routePath);
     routeToLoad
       ? routeToLoad.navigationHandler()
       : document.getElementById('app').innerHTML = HTMLStringNotFound;
@@ -50,7 +62,7 @@ export class Router {
       window.history.pushState({}, '', 'error');
       this.reactOnURLChange('error');
     } else {
-      window.history.pushState({}, '', routeToLoad.path);
+      window.history.pushState({}, '', this.basePath + routeToLoad.path);
       this.reactOnURLChange(routeToLoad.path);
       eventBusSingleton.publish('navigationTabIsActive', routeToLoad.path);
     }

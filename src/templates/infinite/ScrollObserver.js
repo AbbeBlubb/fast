@@ -72,7 +72,6 @@ export const temporaryStart = () => start();
 let currentIndex = 0;
 
 
-
 // Callback for the bottom sentinel
 
 let bottomSentinelPreviousY = 0;
@@ -123,14 +122,6 @@ let topSentinelPreviousY = 0;
 let topSentinelPreviousRatio = 0;
 
 const topSentinelCallback = entry => {
-
-  /*
-  // Reset paddings if on top; maby overkill
-  if (currentIndex === 0) {
-    const container = document.querySelector('.scroll-section__ul');
-    container.style.paddingTop = '0px';
-    container.style.paddingBottom = '0px';
-  }*/
 
   const currentY = entry.boundingClientRect.top;
   const currentRatio = entry.intersectionRatio;

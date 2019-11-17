@@ -1,6 +1,10 @@
 import { navigationTabIsActive } from '../templates/navigation';
 import { oneImageHasBeenLoaded, resetCounterForImageLoader } from '../templates/lazy/dataLazy';
-import { oneRecyclingHasBeenDone, resetCounterForRecycling } from '../templates/infinite/dataInfinite';
+import {
+  oneRecyclingHasBeenDone,
+  resetCounterForRecycling,
+  paddingTopHasBeenSet,
+  resetCounterForPaddingTop } from '../templates/infinite/dataInfinite';
 
 /**
  * Pre-made subscriptions for the event bus
@@ -38,6 +42,14 @@ export const subscriptions = {
 
   resetRecyclingCounter: {
     hardcoded5: function() { resetCounterForRecycling(); }
+  },
+
+  paddingTopHasBeenSet: {
+    hardcoded6: function(px) { paddingTopHasBeenSet(px); }
+  },
+
+  resetPaddingTop: {
+    hardcoded7: function() { resetCounterForPaddingTop(); }
   }
 
 };

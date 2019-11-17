@@ -1,9 +1,10 @@
+import { eventBusSingleton } from '../../index';
+
 const extractNumberFromString = numStr => Number(numStr.substring(0, numStr.length - 2));
 
 export const adjustPaddings = (isScrollDown, DOMListSize) => {
 
   const container = document.querySelector('.scroll-section__ul');
-  console.log('Current padding-top: ', container.style.paddingTop);
   const currentPaddingTop = extractNumberFromString(container.style.paddingTop);
   const currentPaddingBottom = extractNumberFromString(container.style.paddingBottom);
   // The tile is 140px heigh, and margin is 30px on top and 50px on btm, equals to 50px
@@ -16,4 +17,6 @@ export const adjustPaddings = (isScrollDown, DOMListSize) => {
     container.style.paddingTop = currentPaddingTop === 0 ? '0px' : currentPaddingTop - remPaddingsVal + 'px';
     container.style.paddingBottom = currentPaddingBottom + remPaddingsVal + 'px';
   }
+
+  eventBusSingleton.publish('paddingTopHasBeenSet', extractNumberFromString(container.style.paddingTop));
 };

@@ -51,7 +51,9 @@ export class Router {
     routeToLoad
       ? routeToLoad.navigationHandler()
       : document.getElementById('app').innerHTML = HTMLStringNotFound;
-  };
+  
+    eventBusSingleton.publish('navigationTabIsActive', routePath);
+    };
 
   // When click on navigation button, take the event and set the new path in the URL bar
   btnNavigate(event) {

@@ -1,6 +1,6 @@
 .tile {
   list-style: none;
-  width: 100%;
+  width: calc(100% - 20px); // From the full width, need to remove the margins, 10px left and right
   max-width: 360px;
   height: 140px;
   margin: 30px 10px 50px 10px;

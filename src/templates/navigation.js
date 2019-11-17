@@ -1,4 +1,5 @@
 export const navigationTabIsActive = function(activePath) {
+  // Observe: when the inpsector is open, the hoover state can make it look like the focus is not working
   document
     .querySelectorAll('.navigation__button')
     .forEach(element => element.classList.remove('navigation__button--is-active'));

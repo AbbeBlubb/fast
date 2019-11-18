@@ -20,7 +20,8 @@ export class Router {
     // When the browser first loads, it always fires a popstate event. So you need to determine if this popstate is yours or not.
     // https://stackoverflow.com/questions/5210034/can-i-prevent-history-popstate-from-triggering-on-initial-page-load
     if(!!event.state) {
-      this.reactOnURLChange(window.location.pathname);
+      const routePath =this.getRouteFromCurrentPath(window.location.pathname);
+      this.reactOnURLChange(routePath);
     }
   };
 
@@ -51,6 +52,7 @@ export class Router {
   };
 
   // Fires: 1, when popstate, 2, when btnNavigate after DOM button is clicked
+  // Needs the '/path' as arg, not '/repoName/path'
   reactOnURLChange(routePath) {
     const routeToLoad = this.routes.find(routeObject => routeObject.path === routePath);
     routeToLoad

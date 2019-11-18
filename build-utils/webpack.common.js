@@ -111,6 +111,10 @@ module.exports = env => {
         {
           from: 'src/404.html',
           to: '404.html'
+        },
+        {
+          from: 'ghspa.js',
+          to: 'ghspa.js'
         }
       ]),
 

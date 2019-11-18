@@ -1,3 +1,9 @@
+## Dev server
+- npm run devbuild; builds without contenthash, thus making the webpack dev server work properly
+- npm start
+- npm run build; builds with contenthash aimed for deploy
+
+
 ## Features
 
 Webpack

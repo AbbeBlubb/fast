@@ -24,12 +24,14 @@ export class Router {
     }
   };
 
+  // For Github URL
   getBaseFromCurrentPath(currentPath) {
     return currentPath === '/fast/' ? '/fast' : '';
   }
 
+  // For Github URL
   getRouteFromCurrentPath(currentPath) {
-    return currentPath.replace(/\/fast/g, '');
+    return currentPath.replace(/\/fast\//g, '/');
   }
 
   // Function to be called in index.js to load the initial view
@@ -51,7 +53,7 @@ export class Router {
     routeToLoad
       ? routeToLoad.navigationHandler()
       : document.getElementById('app').innerHTML = HTMLStringNotFound;
-  
+
     eventBusSingleton.publish('navigationTabIsActive', routePath);
     };
 

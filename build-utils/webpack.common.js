@@ -97,16 +97,22 @@ module.exports = env => {
         filename: env === 'prod' ? '[name].[contenthash].css' : '[name].css'
       }),
 
-     new HtmlWebpackPlugin({
+      new HtmlWebpackPlugin({
         template: './src/index.html'
       }),
 
       new ManifestPlugin(),
 
-      new CopyPlugin([{
-        from: 'src/assets-href',
-        to: 'assets-href'
-      }]),
+      new CopyPlugin([
+        {
+          from: 'src/assets-href',
+          to: 'assets-href'
+        },
+        {
+          from: 'src/404.html',
+          to: '404.html'
+        }
+      ]),
 
       new WebpackShellPlugin({
         onBuildEnd:['echo "TEST from WebpackShellPlugin - webpack.prod.js"']

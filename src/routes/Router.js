@@ -26,7 +26,9 @@ export class Router {
 
   // For Github URL
   getBaseFromCurrentPath(currentPath) {
-    return currentPath === '/fast/' ? '/fast' : '';
+    const regex = RegExp(/\/fast\//g);
+    const containsBase = regex.test(currentPath);
+    return containsBase ? '/fast' : '';
   }
 
   // For Github URL
@@ -35,6 +37,7 @@ export class Router {
   }
 
   // Function to be called in index.js to load the initial view
+  // Is loaded from index.js
   loadInitialRoute(currentPath) {
     // When the app loads, store the basePath
     this.basePath = this.getBaseFromCurrentPath(currentPath);

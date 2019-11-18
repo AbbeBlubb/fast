@@ -32,7 +32,7 @@ export const featureSection = `
       <li>
         Webpack is configured for development and production.
         The configuration includes <span class='bold'>code-splitting</span> and <span class='bold'>bundle name hashing</span>,
-        to facilitate browser caching, and <span class='bold'>image compression</span>.
+        to optimize browser caching, and <span class='bold'>image compression</span>.
       </li>
     </ul>
 

@@ -1,91 +1,118 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const WebpackShellPlugin = require('webpack-shell-plugin');
 
+// Content for builds & dev server. Made as function to recieve the env var from webpack.config.js
+module.exports = env => {
 
-module.exports = {
+  console.log('Env is: ', env);
 
-  entry: {
-    bundle: './src/index.js'
-  },
+  return {
 
-  output: {
-    path: path.resolve(__dirname, '../', 'build'),
-    filename: '[name].js',
-    chunkFilename: '[name].js',
-    publicPath: ''
-  },
+    entry: {
+      bundle: './src/index.js'
+    },
 
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all'
-        }
-      }
-    }
-  },
+    output: {
+      path: path.resolve(__dirname, '../', 'build'),
+      filename: env === 'prod' ? '[name].[contenthash].js': '[name].js',
+      chunkFilename: env === 'prod' ? '[name].[contenthash].js' : '[name].js',
+      publicPath: ''
+    },
 
-  devServer: {
-    contentBase: path.resolve(__dirname, '../', 'build'),
-    port: 8000,
-    historyApiFallback: true
-  },
-
-  module: {
-    rules: [
-
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
+    optimization: {
+      moduleIds: 'hashed', // For contenthash, when moduleid is changed
+      runtimeChunk: 'single', // Runtime bundle needed for contenthash, as the runtime will change for each build
+      splitChunks: {
+        cacheGroups: {
+          commons: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all'
           }
         }
-      },
+      }
+    },
 
-      {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader'
-        ]
-      },
+    devServer: {
+      contentBase: path.resolve(__dirname, '../', 'build'),
+      port: 8000,
+      historyApiFallback: true
+    },
 
-      {
-        test: /\.(png|svg|jpg|gif|ico)$/,
-        use: [
-          {
-            loader: 'file-loader',
+    module: {
+      rules: [
+
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
             options: {
-              name: '/assets/[name].[ext]' // [path][name].[ext]
+              presets: ['@babel/preset-env']
             }
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                enabled:true,
-                progressive: true,
-                quality: 65
+          }
+        },
+
+        {
+          test: /\.scss$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            'css-loader',
+            'sass-loader'
+          ]
+        },
+
+        {
+          test: /\.(png|svg|jpg|gif|ico)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '/assets/[name].[ext]' // [path][name].[ext]
+              }
+            },
+            {
+              loader: 'image-webpack-loader',
+              options: {
+                mozjpeg: {
+                  enabled:true,
+                  progressive: true,
+                  quality: 65
+                }
               }
             }
-          }
-        ]
-      }
+          ]
+        }
+
+      ]
+    },
+
+    plugins: [
+
+      new MiniCssExtractPlugin({
+        filename: env === 'prod' ? '[name].[contenthash].css' : '[name].css'
+      }),
+
+     new HtmlWebpackPlugin({
+        template: './src/index.html'
+      }),
+
+      new ManifestPlugin(),
+
+      new CopyPlugin([{
+        from: 'src/assets-href',
+        to: 'assets-href'
+      }]),
+
+      new WebpackShellPlugin({
+        onBuildEnd:['echo "TEST from WebpackShellPlugin - webpack.prod.js"']
+      })
 
     ]
-  },
 
-  plugins: [
-
-    new MiniCssExtractPlugin({
-      filename: '[name].css'
-    })
-
-  ]
+  };
 };

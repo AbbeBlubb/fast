@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config build-utils/webpack.config.js --env.env=prod",
+    "devbuild": "webpack --config build-utils/webpack.config.js --env.env=dev",
     "start": "webpack-dev-server --config build-utils/webpack.config.js --env.env=dev --open"
   },
   "keywords": [],

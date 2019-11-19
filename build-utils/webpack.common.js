@@ -72,7 +72,7 @@ module.exports = env => {
             {
               loader: 'file-loader',
               options: {
-                name: '/assets/[name].[ext]' // [path][name].[ext]
+                name: 'assets/[name].[ext]' // [path][name].[ext] ; don't use /, like in /assets
               }
             },
             {

@@ -1,6 +1,3 @@
-import eventBus from '../../assets/event-bus.png';
-import router from '../../assets/router.png';
-
 export const featureSection = `
   <section class='feature-section' role='contentinfo' aria-label='xxx' id='content'>
 
@@ -62,7 +59,7 @@ export const featureSection = `
 
       <img
         class='feature-section__image'
-        src='assets/event-bus.png'
+        src=${require('../..//assets/event-bus.png')}
         title='The event bus'
         alt='Schema over the event bus'
       >
@@ -72,21 +69,21 @@ export const featureSection = `
       <h2>Router</h2>
       <img
         class='feature-section__image'
-        src='assets/router.png'
+        src=${require('../../assets/router.png')}
         title='The rotuer'
         alt='Schema over the router'
       >
     </article>
 
     <article>
-    <h2>Code splitting and compression</h2>
-    <img
-      class='feature-section__image'
-      src='assets/webpack.png'
-      title='Webpack'
-      alt='Schema over the webpack bundeling'
-    >
-  </article>
+      <h2>Code splitting and compression</h2>
+      <img
+        class='feature-section__image'
+        src=${require('../../assets/webpack.png')}
+        title='Webpack'
+        alt='Schema over the webpack bundeling'
+      >
+    </article>
 
   </section>
 `;

@@ -11,13 +11,14 @@ Webpack
 - webpack dev server
 - Babel
 - SCSS
-- Code splitting
+- Caching: code splitting, bundle content hash
+- Image compression
 
 JS
-- IntersectionObserve
+- IntersectionObserve: lazy-loading and infinite scroll with recycling
 - Markup logic with template literals
 - Handler for outline when user is tabbing or clicking
-- Routing: iniial page on URL request, pushState for DOM buttons, popstate for reacting on URL change and change DOM elements
+- Routing: iniial page on URL request, pushState for DOM buttons, popstate for reacting on URL change and change DOM elements. Specific features for Github static pages
 - Event bus: Publish to an event type, subscribe to the subscription object
 
 CSS
@@ -29,12 +30,10 @@ Other
 - BEM
 
 Want to do:
-- image-webpack-loader (compression) and url-loader (base 64; will disable the cashing functionality)
-- Hash/chunkhash working in development
+- Url-loader (base 64; will disable the cashing functionality)
 - System.import() for module routing
-- webpack config prod settings
 - manifest.json
-- infinite scroll
+
 
 <p>⚡ Lazy-loading and code splitting ⚡</p>
 

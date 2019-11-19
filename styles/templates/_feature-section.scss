@@ -8,4 +8,13 @@
     font-weight: normal;
   }
 
+  li {
+    margin: 7px 0;
+  }
+
+  &__image {
+    margin: 20px;
+    max-width: calc(100% - 20px - 20px);
+    height: auto;
+  }
 }

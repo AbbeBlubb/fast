@@ -62,7 +62,7 @@ export const featureSection = `
 
       <img
         class='feature-section__image'
-        src=${eventBus}
+        src='assets/event-bus.png'
         title='The event bus'
         alt='Schema over the event bus'
       >
@@ -72,7 +72,7 @@ export const featureSection = `
       <h2>Router</h2>
       <img
         class='feature-section__image'
-        src=${router}
+        src='assets/router.png'
         title='The rotuer'
         alt='Schema over the router'
       >

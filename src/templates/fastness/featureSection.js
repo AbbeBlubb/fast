@@ -78,5 +78,15 @@ export const featureSection = `
       >
     </article>
 
+    <article>
+    <h2>Code splitting and compression</h2>
+    <img
+      class='feature-section__image'
+      src='assets/webpack.png'
+      title='Webpack'
+      alt='Schema over the webpack bundeling'
+    >
+  </article>
+
   </section>
 `;

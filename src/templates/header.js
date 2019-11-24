@@ -1,5 +1,5 @@
 export const header = `
   <header class='header'>
-    <h1>Blazingly Fast</h1>
+    <h1>Blazing Fast</h1>
   </header>
 `;

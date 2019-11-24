@@ -32,7 +32,7 @@ export class ImageObserver {
     this.createObserver(this.options);
   }
 
-   onIntersectionEvent(images, imageObserver) {
+  onIntersectionEvent(images, imageObserver) {
     // Loop through the images
     images.forEach(entry => {
       // Is the image in viewport?

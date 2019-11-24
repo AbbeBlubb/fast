@@ -19,8 +19,8 @@ export const featureSection = `
           For this reason, I built my own <span class='bold'>routing</span> and <span class='bold'>event bus</span>.
         </li>
         <li>
-          The image loader uses intersection observer to <span class='bold'>load images as they are needed</span>,
-          thus avoiding to load unnessesary content.
+          The image lazy loader uses intersection observer to <span class='bold'>load images as they are needed</span>,
+          thus avoiding loading unnecessary content.
           You can follow the loading in the inspector network tab.
         </li>
         <li>
@@ -52,7 +52,7 @@ export const featureSection = `
       <h2>Event bus</h2>
 
       <p>
-        The publishing and subscribed modules interacs through the event bus,
+        The publishing and subscribed modules interacts through the event bus,
          instead of interacting directly with each other.
         This way the application scales better.
       </p>
@@ -81,7 +81,27 @@ export const featureSection = `
         class='feature-section__image'
         src=${require(`../../assets/webpack.png`)}
         title='Webpack'
-        alt='Schema over the webpack bundeling'
+        alt='Schema over the webpack bundling'
+      >
+    </article>
+
+    <article>
+      <h2>Lazy loader</h2>
+      <img
+        class='feature-section__image'
+        src=${require(`../../assets/lazy-loader.png`)}
+        title='Lazy loader'
+        alt='Schema over the lazy loader'
+      >
+    </article>
+
+    <article>
+      <h2>Infinite scroll</h2>
+      <img
+        class='feature-section__image'
+        src=${require(`../../assets/infinite-scroll.png`)}
+        title='Infinite scroll'
+        alt='Schema over the infinite scroll'
       >
     </article>
 

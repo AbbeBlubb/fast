@@ -1,7 +1,14 @@
 .feature-section {
-  max-width: 350px;
+  //max-width: 350px;
   margin: 0 auto;
   padding: 0 10px 30px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  article {
+    width: 350px;
+  }
 
   h2 {
     text-align: center;
